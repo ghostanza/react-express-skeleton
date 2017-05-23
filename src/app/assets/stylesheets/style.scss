@@ -1,0 +1,18 @@
+@import url('https://fonts.googleapis.com/css?family=Barrio');
+
+@mixin flex-center{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+$bkg: coral;
+$text_col: white;
+$font: "Barrio", sans-serif;
+
+body{
+  @include flex-center;
+  font-family: $font;
+  color: $text_col;
+  font-size: 40px;
+  background: $bkg;
+}

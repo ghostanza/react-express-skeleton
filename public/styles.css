@@ -1,0 +1,8 @@
+@import url(https://fonts.googleapis.com/css?family=Barrio);body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Barrio", sans-serif;
+  color: white;
+  font-size: 40px;
+  background: coral; }
