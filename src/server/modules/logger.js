@@ -11,7 +11,7 @@ module.exports.log_500 = (err, req) => {
   errorLog_500Stack.write(`${errMessage} ${err.stack}\n\n`);
 }
 
-module.exports.log_400 = (req) => {
+module.exports.log_404 = (req) => {
   var time = new Date(),
       errMessage = `${time.toString()} || IP: ${req.ip} || URL: ${req.originalUrl}\n`;
   errorLog_404.write(errMessage);

@@ -23,7 +23,7 @@ router.get('/api/v1/:endpoint', (req,res,next) => {
         res.send("FETCHING THE TOKEN FOR YA...");
         break;
       default:
-        logger.log_400(req);
+        logger.log_404(req);
         res.status(404);
         res.send("CANNOT FIND ENDPOINT");
         break;

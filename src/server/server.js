@@ -25,7 +25,7 @@ app.use(routes);
 
 // 404 handler
 app.use((req, res, next) => {
-  logger.log_400(req);
+  logger.log_404(req);
   res.status(404);
   res.send("CANT FIND THAT ROUTE YA DUMMY")
 });
