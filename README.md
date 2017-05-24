@@ -1,5 +1,5 @@
 # react-express-skeleton
-Working on creating an all-inclusive skeleton of sorts for myself to use for different projects.
+Working on creating an all-inclusive skeleton of sorts for myself to use for different projects. Currently working to turn it into a Spotify dashboard of sorts.
 
 ## File Structure
 ```
