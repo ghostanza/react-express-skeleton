@@ -6,7 +6,7 @@ var express = require('express'),
     fs = require('fs'),
     request = require('request'),
     auth_handler = require('../modules/auth_handler'),
-    errorLog_404 = fs.createWriteStream(path.join(__dirname, '../logs/error_400.log'), {flags: 'a'});
+    errorLog_404 = fs.createWriteStream(path.join(__dirname, '../logs/error_404.log'), {flags: 'a'});
 
 // main app
 router.get('/', (req, res, next) => {
