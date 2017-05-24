@@ -1,7 +1,7 @@
 # react-express-skeleton
-Working on creating an all-inclusive skeleton of sorts for myself to use for different projects. Currently working to turn it into a Spotify dashboard of sorts.
+Working on creating an all-inclusive skeleton of sorts for myself to use for different projects. Currently working to turn it into a Spotify dashboard of sorts as a way to practice handling OAuth requests server-side, API data/state management client-side (Redux), and overall trying to get better at React, Webpack, and testing.
 
-Still Todo:
+Still To Do:
 * Implement Redux for state management
 * Implement React Router for client-side routing
 * Tests -- Working a little backwards on this. I'm still learning the test framework, so I want to get the main functionality of the skeleton done and then revisit/complete all the tests.
