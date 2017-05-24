@@ -17,7 +17,8 @@ let config = {
     alias: {
       images: path.resolve(__dirname, 'src/app/assets/images'),
       stylesheets: path.resolve(__dirname, 'src/app/assets/stylesheets'),
-      components: path.resolve(__dirname, 'src/app/components')
+      components: path.resolve(__dirname, 'src/app/components'),
+      spotify: path.resolve(__dirname, 'src/app/helpers/spotify.js')
     }
   },
   module:{

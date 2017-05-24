@@ -1,0 +1,24 @@
+Wed May 24 2017 10:24:17 GMT-0400 (EDT) || IP: 127.0.0.1 || URL: /api/v1/callback?code=AQDLB23vathzMXycRSSvaUzCu122TIDde_LxnRC6foakeTqi72Kl2j1ttleefZyPPIiGt3WnGzK7jxRIV4B0WnuPrtQ-XfFgxgdaCO7Q9cv3V9SEBKlMMm1_0KEolZwqc9o1nzRLsOcp2hh82KBacuAb-XzA1bIHuLooTHZGyxGDwKXtJzrtGS-qUhATzYyevJzlaxd3EhIK0Nqoi_K2c_HVJTsUj19trL_DEw || TypeError: auth_handler is not a function
+    at router.get (/Users/JCW/Desktop/Projects/Personal/React/react-express-skeleton/src/server/routes/main.js:22:9)
+    at Layer.handle [as handle_request] (/Users/JCW/Desktop/Projects/Personal/React/react-express-skeleton/node_modules/express/lib/router/layer.js:95:5)
+    at next (/Users/JCW/Desktop/Projects/Personal/React/react-express-skeleton/node_modules/express/lib/router/route.js:137:13)
+    at Route.dispatch (/Users/JCW/Desktop/Projects/Personal/React/react-express-skeleton/node_modules/express/lib/router/route.js:112:3)
+    at Layer.handle [as handle_request] (/Users/JCW/Desktop/Projects/Personal/React/react-express-skeleton/node_modules/express/lib/router/layer.js:95:5)
+    at /Users/JCW/Desktop/Projects/Personal/React/react-express-skeleton/node_modules/express/lib/router/index.js:281:22
+    at param (/Users/JCW/Desktop/Projects/Personal/React/react-express-skeleton/node_modules/express/lib/router/index.js:354:14)
+    at param (/Users/JCW/Desktop/Projects/Personal/React/react-express-skeleton/node_modules/express/lib/router/index.js:365:14)
+    at Function.process_params (/Users/JCW/Desktop/Projects/Personal/React/react-express-skeleton/node_modules/express/lib/router/index.js:410:3)
+    at next (/Users/JCW/Desktop/Projects/Personal/React/react-express-skeleton/node_modules/express/lib/router/index.js:275:10)
+
+Wed May 24 2017 10:25:32 GMT-0400 (EDT) || IP: 127.0.0.1 || URL: /api/v1/callback?code=AQDzAHMYTrAsMpDYj_H9f5cKhjqwXuxsTyLNcbU746x4NJ8CNiZJOHh5Wa_dy9bMgvsQWZBQcuB54jGeNIOhVNJdXykaCHQTzxcMQGpngfB_kswQT_-C4AAh0heXnffYhyNTeVNfMkrd3YNOIEU6G94bZz0xRHE4I6R40guIhA322LzvLhULARli4qBENE-xXCqktjWHaQtKLuAv4acyQlKJFaLov0_PMZB2lg || TypeError: auth_handler is not a function
+    at router.get (/Users/JCW/Desktop/Projects/Personal/React/react-express-skeleton/src/server/routes/main.js:22:9)
+    at Layer.handle [as handle_request] (/Users/JCW/Desktop/Projects/Personal/React/react-express-skeleton/node_modules/express/lib/router/layer.js:95:5)
+    at next (/Users/JCW/Desktop/Projects/Personal/React/react-express-skeleton/node_modules/express/lib/router/route.js:137:13)
+    at Route.dispatch (/Users/JCW/Desktop/Projects/Personal/React/react-express-skeleton/node_modules/express/lib/router/route.js:112:3)
+    at Layer.handle [as handle_request] (/Users/JCW/Desktop/Projects/Personal/React/react-express-skeleton/node_modules/express/lib/router/layer.js:95:5)
+    at /Users/JCW/Desktop/Projects/Personal/React/react-express-skeleton/node_modules/express/lib/router/index.js:281:22
+    at param (/Users/JCW/Desktop/Projects/Personal/React/react-express-skeleton/node_modules/express/lib/router/index.js:354:14)
+    at param (/Users/JCW/Desktop/Projects/Personal/React/react-express-skeleton/node_modules/express/lib/router/index.js:365:14)
+    at Function.process_params (/Users/JCW/Desktop/Projects/Personal/React/react-express-skeleton/node_modules/express/lib/router/index.js:410:3)
+    at next (/Users/JCW/Desktop/Projects/Personal/React/react-express-skeleton/node_modules/express/lib/router/index.js:275:10)
+

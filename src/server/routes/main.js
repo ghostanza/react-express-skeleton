@@ -5,6 +5,7 @@ var express = require('express'),
     logger = require('../modules/logger'),
     fs = require('fs'),
     request = require('request'),
+    auth_handler = require('../modules/auth_handler'),
     errorLog_404 = fs.createWriteStream(path.join(__dirname, '../logs/error_400.log'), {flags: 'a'});
 
 // main app
@@ -16,6 +17,10 @@ router.get('/', (req, res, next) => {
 router.get('/api/v1/:endpoint', (req,res,next) => {
   var endpoint = req.params.endpoint || '';
     switch(endpoint){
+      case 'callback':
+        var code = req.query.code;
+        auth_handler.tokenRequest(code, res, req);
+        break;
       case 'code':
         res.send("FETCHING THE CODE...")
         break;
