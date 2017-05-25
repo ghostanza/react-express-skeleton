@@ -14,9 +14,24 @@ export default class Welcome extends React.Component {
       userData.data && this.setState({ userData: userData.data });
     });
   }
+  logout(e){
+    e.preventDefault();
+    document.cookie = 'token=;expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+    location.reload();
+  }
   render() {
+
     return(
-      <h1>{ this.state.userData.id ? `Welcome ${this.state.userData.id}` : 'Loading' }!</h1>
+      <div className='welcome-bar'>
+        {
+          this.state.userData.id ? (
+              <div className='msg-and-controls'>
+                <h2 className='welcome-msg'>{ this.state.userData.id ? `${this.state.userData.id}'s dashboard.` : ''}</h2>
+                <span onClick={this.logout}>Log Out</span>
+              </div>
+            ) : ''
+        }
+      </div>
     )
   }
 }
