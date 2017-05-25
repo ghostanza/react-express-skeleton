@@ -19,6 +19,8 @@ src/
           - images/
           - stylesheets/
       - components/
+      - helpers/
+          - spotify.js (spotify/axios API calls)
       - tests/
       - index.js (Webpack entry point)
   - server/ (Node/Express)
@@ -28,6 +30,7 @@ src/
           - error_500.log
           - error_500_stack.log (full stack trace)
       - modules/
+          - auth_handler.js (OAuth helper)
           - logger.js
       - routes/
           - main.js
