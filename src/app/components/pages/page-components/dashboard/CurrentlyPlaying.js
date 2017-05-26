@@ -4,21 +4,24 @@ import {getCurrentlyPlaying} from 'spotify';
 export default class CurrentlyPlaying extends React.Component {
   constructor(props){
     super(props);
+    // to clear the interval on unmount
+    this.int;
     this.state = {
       currentTrack: {}
     }
   }
   componentDidMount(){
     getCurrentlyPlaying(this.props.token).then((res) => {
-      console.log(res.data);
       this.setState(prevState => ( (res.data && res.data!=prevState) ? {currentTrack: res.data } : prevState ));
     })
-    setInterval(function(){
+    this.int = setInterval(function(){
       getCurrentlyPlaying(this.props.token).then((res) => {
-        console.log(res);
         this.setState(prevState => ( res.data ? {currentTrack: res.data } : preState ));
       })
     }.bind(this), 5000 );
+  }
+  componentWillUnmount(){
+    clearInterval(this.int);
   }
   render() {
     return(

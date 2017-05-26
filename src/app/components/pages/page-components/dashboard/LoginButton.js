@@ -9,7 +9,7 @@ export default class LoginButton extends React.Component {
         response_type = 'code',
         login_link = `${auth_link}?client_id=${client_id}&redirect_uri=${redirect_uri}&scope=${scope}&response_type=${response_type}`;
     return(
-      <div className='main'>
+      <div className='login-btn-wrap'>
         <a href={login_link} className='login-btn'>Get Started</a>
       </div>
     )

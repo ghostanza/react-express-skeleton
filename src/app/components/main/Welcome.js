@@ -10,14 +10,13 @@ export default class Welcome extends React.Component {
   }
   componentDidMount(){
     spotify.getUserInfo(this.props.token).then( (userData) => {
-      console.log(userData);
       userData.data && this.setState({ userData: userData.data });
     });
   }
   logout(e){
     e.preventDefault();
     document.cookie = 'token=;expires=Thu, 01 Jan 1970 00:00:01 GMT;';
-    location.reload();
+    window.location.replace('/');
   }
   render() {
 
@@ -25,10 +24,10 @@ export default class Welcome extends React.Component {
       <div className='welcome-bar'>
         {
           this.state.userData.id ? (
-              <div className='msg-and-controls'>
-                <h2 className='welcome-msg'>{ this.state.userData.id ? `${this.state.userData.id}'s dashboard.` : ''}</h2>
-                <span onClick={this.logout}>Log Out</span>
-              </div>
+            <div className='msg-and-controls'>
+              <h2 className='welcome-msg'>{ this.state.userData.id ? `${this.state.userData.id}'s dashboard.` : ''}</h2>
+              <span onClick={this.logout}>Log Out</span>
+            </div>
             ) : ''
         }
       </div>

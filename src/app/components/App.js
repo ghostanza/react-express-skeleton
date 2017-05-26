@@ -1,16 +1,22 @@
 import React from 'react';
-import LoginButton from './main/LoginButton';
-import Dashboard from './main/Dashboard';
+import Header from './main/Header';
+import Main from './main/Main';
 
 export default class App extends React.Component {
+  constructor(props){
+    super(props);
+    this.state = {
+      token: document.cookie.replace(/.*token=([^;]*).*$/,"$1")
+    }
+  }
   render() {
-    var has_token = document.cookie.replace(/.*token=([^;]*).*$/,"$1");
     return(
       <div>
-        {has_token ?
-          <Dashboard token={has_token} /> : <LoginButton />
-        }
-        </div>
+        {this.state.token ? (
+          <Header token={this.state.token}/>
+        ) : ''}
+        <Main token={this.state.token}/>
+      </div>
     )
   }
 }

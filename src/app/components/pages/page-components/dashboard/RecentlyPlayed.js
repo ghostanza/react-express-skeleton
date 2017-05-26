@@ -10,7 +10,6 @@ export default class RecentlyPlayed extends React.Component {
   }
   componentDidMount(){
     getRecentlyPlayed(this.props.token, {limit: 10}).then((res) => {
-      console.log(res);
       this.setState(prevState => ( res.data.items ? {recentlyPlayed: [...prevState.recentlyPlayed,...res.data.items]} : recentlyPlayed ));
     });
   }

@@ -62,9 +62,9 @@ module.exports.getAudioAnalysis = (token, track_id) => {
 
 // returns primary features (energy, danceability, etc.) of a given track ID or array of track IDs
 module.exports.getAudioFeatures = (token, track_ids) => {
-  if(token && id){
+  if(token && track_ids){
     var config = { headers: {'Authorization': `Bearer ${token}`} };
-    return axios.get(`https://api.spotify.com/${version}/audio-features/${typeof track_ids === 'object' ? `?ids=${track_ids.join(',')}`: track_ids}`);
+    return axios.get(`https://api.spotify.com/${version}/audio-features/${typeof track_ids === 'object' ? `?ids=${track_ids.join(',')}`: track_ids}`, config);
   }
   else{  return Promise.resolve(''); }
 }
@@ -105,7 +105,12 @@ module.exports.getAlbums = (album_ids, market) =>{
   spotify.getArtists(['0oSGxfWSnnOXhD2fKuz2Gy','3dBVyJ7JuOMt4GE9607Qin'])
 */
 module.exports.getArtists = (artist_ids) => {
-  return axios.get(`https://api.spotify.com/${version}/arists/${typeof artist_ids === 'object' ? `?ids=${artist_ids.join(',')}`: artist_ids}`);
+  return axios.get(`https://api.spotify.com/${version}/artists/${typeof artist_ids === 'object' ? `?ids=${artist_ids.join(',')}`: artist_ids}`);
+}
+
+
+module.exports.getArtistTopTracks = (artist_id, country = 'US') => {
+  return axios.get(`https://api.spotify.com/${version}/artists/${artist_id}/top-tracks?country=${country}`);
 }
 
 /*

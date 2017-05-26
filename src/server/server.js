@@ -29,7 +29,7 @@ app.use(routes);
 app.use((req, res, next) => {
   logger.log_404(req);
   res.status(404);
-  res.send("CANT FIND THAT ROUTE YA DUMMY")
+  res.redirect('/');
 });
 
 // 500 handler

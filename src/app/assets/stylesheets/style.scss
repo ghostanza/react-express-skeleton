@@ -22,10 +22,24 @@ h2{
   color: $heading-text;
   font-size: 15px;
 }
-.main{
+a{
+  text-decoration: none;
+  transition: all 0.3s;
+  cursor: pointer;
+  color: white;
+  font-family: $body-font;
+  &:hover{
+    color: magenta;
+  }
+}
+.main-wrap, .main-dash{
   width: 100%;
   height: 100%;
   @include flex-center;
+}
+.login-btn-wrap{
+  width: 100%;
+  text-align: center;
 }
 .login-btn{
   text-decoration: none;
@@ -50,17 +64,23 @@ h2{
     box-shadow: none;
   }
 }
-.welcome-bar{
+.header-contain{
   position: fixed;
-  text-transform: lowercase;
-  top: 0;
+  top:0;
+  z-index: 9;
   width: 100%;
-  & h2, & span{
-    display: inline-block;
+  & h2, & span, & p{
     font-size: 10px;
     font-weight: bold;
     margin: 0;
     transition: all 0.3s;
+  }
+}
+.welcome-bar{
+  float: left;
+  text-transform: lowercase;
+  & h2, & span{
+    display: inline-block;
   }
   & span{
     cursor: pointer;
@@ -70,7 +90,12 @@ h2{
     color: magenta;
   }
 }
-
+.nav-bar{
+  float: right;
+}
+.main-contain{
+  clear: both;
+}
 .dash-block{
   padding: 30px;
   background: #111;
@@ -119,5 +144,55 @@ h2{
       text-align: left;
       & span{ font-style: italic; font-family: sans-serif; font-size: 10px; }
     }
+  }
+}
+
+.artist-contain{
+  @include flex-center;
+  width: 100%;
+  height: 100%;
+  & .content{ width: 100%; height: 100%;}
+  & h1{
+    font-family: $body-font;
+    text-align: center;
+    //text-shadow: 5px 5px 0px magenta, -3px -7px 0px rgba(teal, 0.7);
+    margin: 0;
+    font-size: 10vmax;
+    position:relative;
+    z-index: 2;
+    text-transform: uppercase;
+  }
+  & .track-info{
+    text-align: center;
+    position: relative;
+    z-index: 2;
+  }
+  & .dash-block{
+    display: inline-block;
+    max-width: 400px;
+    float: none;
+    border: 3px solid white;
+    vertical-align: top;
+  }
+  & .artist-img{
+    width: 450px;
+    height: 450px;
+    position: fixed;
+    bottom: -90px;
+    right: -50px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    box-shadow: 50px -200px 0px 500px coral;
+    border-radius: 50%;
+    overflow: hidden;
+    @include flex-center;
+    & img{
+      min-height: 100%;
+      min-width: 100%;
+    }
+  }
+  & .artist-score{
+    color: magenta;
   }
 }
