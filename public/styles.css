@@ -182,6 +182,9 @@ a {
   .artist-contain .artist-score {
     color: magenta; }
 
+.topArtists.dash-block {
+  min-height: 250px; }
+
 .topArtists select {
   appearance: none;
   -webkit-appearance: none;
@@ -223,7 +226,6 @@ a {
   border-radius: 20px 20px 0 0;
   max-width: 10000px;
   max-height: 300px;
-  padding: 0;
   height: 150px;
   width: 75%;
   border: none;
@@ -231,26 +233,29 @@ a {
   white-space: nowrap;
   overflow-x: scroll;
   overflow-y: hidden;
-  box-shadow: inset -5px 0px 5px rgba(0, 0, 0, 0.2);
+  box-shadow: inset 0px 0px 10px rgba(0, 0, 0, 0.2);
   position: relative;
-  border-bottom: 4px solid magenta;
   z-index: 2; }
   .artist-contain .albums-container.dash-block .album-row {
-    position: absolute; }
+    position: absolute;
+    padding-right: 25px;
+    min-width: 90%;
+    text-align: center; }
   .artist-contain .albums-container.dash-block .album {
     height: 145px;
     width: 145px;
     position: relative;
     display: inline-block;
-    margin: 5px;
+    margin: 5px 10px;
+    text-align: center;
     cursor: pointer; }
     .artist-contain .albums-container.dash-block .album span {
       white-space: normal;
       display: block;
       padding: 10px;
       box-sizing: border-box;
-      width: 100%;
-      height: 100%;
+      width: 101%;
+      height: 101%;
       color: magenta;
       background: rgba(0, 0, 0, 0.7);
       display: flex;
@@ -263,7 +268,7 @@ a {
       text-transform: uppercase;
       transition: all 0.3s; }
     .artist-contain .albums-container.dash-block .album img {
-      width: 100%;
-      border: 1px solid magenta; }
+      height: 100%;
+      box-shadow: -3px 3px 0px rgba(0, 0, 0, 0.3); }
     .artist-contain .albums-container.dash-block .album:hover span {
       opacity: 1; }
