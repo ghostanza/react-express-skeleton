@@ -20,7 +20,6 @@ export default class TopTracksOverview extends React.Component {
     };
     if(infoArray){
       var tracks = infoArray;
-      console.log('hello', infoArray);
       for(var i = 0; i < tracks.length; i++){
         values.dance += tracks[i].danceability;
         values.energy += tracks[i].energy;
@@ -44,7 +43,6 @@ export default class TopTracksOverview extends React.Component {
   }
   render() {
     var data = this.computeInfo(this.props.audioFeatures);
-    console.log('testing',data);
     return(
       <div className="overview dash-block">
         <h2>Artist Scorecard</h2>

@@ -69,6 +69,34 @@ module.exports.getAudioFeatures = (token, track_ids) => {
   else{  return Promise.resolve(''); }
 }
 
+module.exports.getArtists = (token, artist_ids) => {
+  var config = { headers: {'Authorization': `Bearer ${token}`} };
+  return axios.get(`https://api.spotify.com/${version}/artists/${typeof artist_ids === 'object' ? `?ids=${artist_ids.join(',')}`: artist_ids}`, config);
+}
+
+module.exports.getArtistTopTracks = (token, artist_id, country = 'US') => {
+  var config = { headers: {'Authorization': `Bearer ${token}`} };
+  return axios.get(`https://api.spotify.com/${version}/artists/${artist_id}/top-tracks?country=${country}`, config);
+}
+
+module.exports.getArtistAlbums = (token, artist_id, options) => {
+  var config = { headers: {'Authorization': `Bearer ${token}`} };
+  var query='';
+  if(options){
+    query+="?"
+    var count = 1;
+    for(var item in options){
+      query += count > 1 ? `&${item}=${options[item]}` : `${item}=${options[item]}`;
+      count++
+    }
+  }
+  return axios.get(`https://api.spotify.com/${version}/artists/${artist_id}/albums/${query}`, config);
+}
+
+
+
+
+
 module.exports.getTop = (token, type, options) => {
   if(token && type){
     var config = { headers: {'Authorization': `Bearer ${token}`} },
@@ -104,14 +132,6 @@ module.exports.getAlbums = (album_ids, market) =>{
   spotify.getArtists('0OdUWJ0sBjDrqHygGUXeCF')
   spotify.getArtists(['0oSGxfWSnnOXhD2fKuz2Gy','3dBVyJ7JuOMt4GE9607Qin'])
 */
-module.exports.getArtists = (artist_ids) => {
-  return axios.get(`https://api.spotify.com/${version}/artists/${typeof artist_ids === 'object' ? `?ids=${artist_ids.join(',')}`: artist_ids}`);
-}
-
-
-module.exports.getArtistTopTracks = (artist_id, country = 'US') => {
-  return axios.get(`https://api.spotify.com/${version}/artists/${artist_id}/top-tracks?country=${country}`);
-}
 
 /*
  gets all the albums by an artists - accepts a single id and options
@@ -124,15 +144,3 @@ module.exports.getArtistTopTracks = (artist_id, country = 'US') => {
  offset: (0 is the default)
 }
 */
-module.exports.getArtistAlbums = (artist_id, options) => {
-  var query='';
-  if(options){
-    query+="?"
-    var count = 1;
-    for(var item in options){
-      query += count > 1 ? `&${item}=${options[item]}` : `${item}=${options[item]}`;
-      count++
-    }
-  }
-  return axios.get(`https://api.spotify.com/${version}/artists/${artist_id}${query}`);
-}

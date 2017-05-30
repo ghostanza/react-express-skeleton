@@ -18,7 +18,6 @@ export default class Dashboard extends React.Component {
         { this.state.token ? (
           <div>
             <TopArtists token={this.state.token} />
-            <TopArtists token={this.state.token} range='short_term' />
             <RecentlyPlayed token={this.state.token} />
           <CurrentlyPlaying token={this.state.token}/>
         </div>
