@@ -12,6 +12,12 @@ export function getArtistInfo(token, id){
     payload: spotify.getArtists(token, id)
   }
 }
+export function getRelatedArtists(token, id){
+  return {
+    type: "GET_RELATED_ARTISTS",
+    payload: spotify.getRelatedArtists(token, id)
+  }
+}
 export function getArtistAlbums(token, id){
   return{
     type: "GET_ARTIST_ALBUMS",

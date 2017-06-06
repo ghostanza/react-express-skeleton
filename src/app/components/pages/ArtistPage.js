@@ -15,6 +15,7 @@ class ArtistPage extends React.Component {
     if((this.props.artist.current_artist_id != this.props.url_params.id) && this.props.user.token.length){
         this.props.dispatch(artistActions.setCurrentArtist(this.props.url_params.id));
         this.props.dispatch(artistActions.getArtistInfo(this.props.user.token, this.props.url_params.id));
+        this.props.dispatch(artistActions.getRelatedArtists(this.props.user.token, this.props.url_params.id));
         this.props.dispatch(artistActions.getArtistAlbums(this.props.user.token, this.props.url_params.id));
         this.props.dispatch(artistActions.getArtistTopTracks(this.props.user.token, this.props.url_params.id));
     }

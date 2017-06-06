@@ -1,4 +1,6 @@
 # react-express-skeleton
+NEED TO UPDATE: This is no longer a skeleton, it has evolved and is now a Spotify-fueled web app.
+
 Working on creating an all-inclusive skeleton of sorts for myself to use for different projects. Currently working to turn it into a Spotify dashboard of sorts as a way to practice handling OAuth requests server-side, API data/state management client-side (Redux), and overall trying to get better at React, Webpack, and testing.
 
 Still To Do:

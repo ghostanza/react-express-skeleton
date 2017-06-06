@@ -3,6 +3,7 @@ export default function reducer(state={
   info: {},
   albums: [],
   top_tracks: [],
+  related_artists: [],
 }, action){
   switch(action.type){
     case 'SET_CURRENT_ARTIST':{
@@ -16,6 +17,9 @@ export default function reducer(state={
     case 'GET_ARTIST_INFO_FULFILLED': {
       return { ...state, info: action.payload.data };
       break;
+    }
+    case 'GET_RELATED_ARTISTS_FULFILLED':{
+      return { ...state, related_artists: action.payload.data.artists }
     }
     case 'GET_ARTIST_TOP_TRACKS_FULFILLED': {
       return { ...state, top_tracks: action.payload.data.tracks };
