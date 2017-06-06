@@ -12,7 +12,7 @@ function mapStateToProps(state, ownProps){
 
 class ArtistPage extends React.Component {
   componentWillMount(){
-    if((this.props.artist.current_id != this.props.url_params.id) && this.props.user.token.length){
+    if((this.props.artist.current_artist_id != this.props.url_params.id) && this.props.user.token.length){
         this.props.dispatch(artistActions.setCurrentArtist(this.props.url_params.id));
         this.props.dispatch(artistActions.getArtistInfo(this.props.user.token, this.props.url_params.id));
         this.props.dispatch(artistActions.getArtistAlbums(this.props.user.token, this.props.url_params.id));
@@ -20,7 +20,6 @@ class ArtistPage extends React.Component {
     }
   }
   render() {
-    console.log(this.props);
     return (
       <div className='artist-contain'>
         <div className='contents'>

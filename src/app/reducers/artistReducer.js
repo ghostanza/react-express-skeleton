@@ -18,7 +18,7 @@ export default function reducer(state={
       break;
     }
     case 'GET_ARTIST_TOP_TRACKS_FULFILLED': {
-      return { ...state, top_tracks: action.payload.data.items };
+      return { ...state, top_tracks: action.payload.data.tracks };
       break;
     }
   }

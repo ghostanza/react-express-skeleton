@@ -46,7 +46,6 @@ class TopArtists extends React.Component {
   }
   */
   render() {
-    console.log('top-artsts', this.props)
     return(
       <div className="topArtists dash-block">
         <h2>{this.props.user.topArtists[this.props.user.topArtists.current_range] ? `Top 10 Artists` : `Loading top artists...`}</h2>

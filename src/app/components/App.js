@@ -31,8 +31,8 @@ class App extends React.Component {
     }
   }
   render() {
-    console.log(this.props);
-    console.log('user info', this.props.user.info.id);
+    console.log('update',this.props);
+    if(localStorage){localStorage.setItem('appState', JSON.stringify(this.props))}
     return(
       <div>
         { this.props.user.info.id ? (
