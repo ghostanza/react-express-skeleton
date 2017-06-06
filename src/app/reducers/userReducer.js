@@ -1,22 +1,32 @@
-export default function reducer(state={
+const initialState = {
   token: document.cookie.replace(/.*token=([^;]*).*$/,"$1"),
   info: {},
-  topArtists: {
-    current_range: 'long_term',
-    long_term: [],
-    medium_term: [],
-    short_term: []
+  top: {
+    artists: {
+      current_range: 'long_term',
+      long_term: [],
+      medium_term: [],
+      short_term: []
+    },
+    tracks: {
+      current_range: 'long_term',
+      long_term: [],
+      medium_term: [],
+      short_term: []
+    }
   },
   recentlyPlayed: []
-}, action){
+};
+
+export default function reducer(state=initialState, action){
   switch(action.type){
     case "SET_USER_NAME": {
       return { ...state, info: { other: action.name } }
       break;
     }
-    case "CHANGE_TOP_ARTIST_RANGE":{
+    case "CHANGE_TOP_ITEMS_RANGE":{
       var newState = Object.assign({}, state);
-      newState.topArtists.current_range = action.changeTo;
+      newState.top[action.itemType].current_range = action.changeTo;
       return newState;
       break;
     }
@@ -25,9 +35,10 @@ export default function reducer(state={
       return {...state, info: action.payload.data }
       break;
     }
-    case "GET_TOP_ARTISTS_FULFILLED": {
-      var newState = Object.assign({}, state);
-      newState.topArtists[newState.topArtists.current_range] = action.payload.data.items;
+    case "GET_TOP_ITEMS_FULFILLED": {
+      var newState = Object.assign({}, state),
+          itemType = action.payload.data.href.match(/artists|tracks/g)[0];
+      newState.top[itemType][newState.top[itemType].current_range] = action.payload.data.items;
       return newState;
       break;
     }

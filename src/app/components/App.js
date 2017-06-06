@@ -1,8 +1,6 @@
 import React from 'react';
 import Header from './main/Header';
 import Main from './main/Main';
-import TopArtists from './pages/page-components/dashboard/TopArtists';
-import LoginButton from './pages/page-components/dashboard/LoginButton';
 import { connect } from 'react-redux';
 import { getUserInfo } from 'actions/userActions';
 
@@ -31,7 +29,6 @@ class App extends React.Component {
     }
   }
   render() {
-    console.log('update',this.props);
     if(localStorage){localStorage.setItem('appState', JSON.stringify(this.props))}
     return(
       <div>

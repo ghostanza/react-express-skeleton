@@ -7,17 +7,18 @@ export function getUserInfo(token){
   }
 }
 
-export function getTopArtists(token, options){
+export function getTopItems(token, itemType, options){
   return {
-    type: "GET_TOP_ARTISTS",
-    payload: spotify.getTop(token, 'artists', options)
+    type: "GET_TOP_ITEMS",
+    payload: spotify.getTop(token, itemType, options)
   }
 }
 
-export function changeTopArtistRange(range){
+export function changeTopItemsRange(range, itemType){
   return {
-    type: "CHANGE_TOP_ARTIST_RANGE",
-    changeTo: range
+    type: "CHANGE_TOP_ITEMS_RANGE",
+    changeTo: range,
+    itemType
   }
 }
 

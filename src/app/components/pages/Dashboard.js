@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import LoginButton from './page-components/dashboard/LoginButton';
-import TopArtists from './page-components/dashboard/TopArtists';
+import MyTop from './page-components/dashboard/MyTop';
 import RecentlyPlayed from './page-components/dashboard/RecentlyPlayed';
 import CurrentlyPlaying from './page-components/dashboard/CurrentlyPlaying';
 import {Link} from 'react-router-dom';
@@ -18,8 +18,8 @@ class Dashboard extends React.Component {
       <div className='main-dash'>
         { this.props.user.token ? (
           <div>
-            <TopArtists />
-            <RecentlyPlayed token={this.props.user.token} />
+            <MyTop type='artists'/>
+            <MyTop type='tracks'/>
         </div>
         ) : <LoginButton /> }
       </div>
