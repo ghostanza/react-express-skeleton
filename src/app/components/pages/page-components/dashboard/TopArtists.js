@@ -1,44 +1,28 @@
 import React from 'react';
-import {getTop} from 'spotify';
+import {connect} from 'react-redux';
+// import {getTop} from 'spotify';
 import {Link} from 'react-router-dom';
+import * as actions from 'actions/userActions';
 
-export default class TopArtists extends React.Component {
-  constructor(props){
-    super(props);
-    this.state = {
-      range: this.props.range ? this.props.range : 'long_term',
-      topArtists: {
-        // all time
-        long_term: [],
-        // 6 months
-        medium_term: [],
-        // 4 weeks
-        short_term:[]
-      }
-    }
-  }
+function mapStateToProps(state){
+  return {...state}
+}
+
+class TopArtists extends React.Component {
   changeRange(e){
-    var range = e.target.value,
-        newRange = e.target.value === this.state.range ? this.state.range : e.target.value;
-    this.setState({range: newRange});
-    // If there is no data yet, fetch it
-    if(!this.state.topArtists[range].length > 0){
-      getTop(this.props.token, 'artists', {limit: 10, time_range: range})
-        .then((res) => {
-          var nextState = Object.assign({}, this.state);
-          nextState.topArtists[range] = res.data.items;
-          this.setState( prevState => (nextState));
-        })
+    var range = e.target.value;
+
+    this.props.dispatch(actions.changeTopArtistRange(range));
+    if( this.props.user.token && !this.props.user.topArtists[range].length ){
+      this.props.dispatch(actions.getTopArtists(this.props.user.token, { limit: 10, time_range: range }))
     }
   }
   componentDidMount(){
-    getTop(this.props.token, 'artists', {limit: 10, time_range: this.state.range})
-      .then((res) => {
-        var nextState = Object.assign({}, this.state);
-        nextState.topArtists[this.state.range] = res.data.items;
-        this.setState(prevState => (nextState));
-      });
+    if( this.props.user.token && !this.props.user.topArtists[this.props.user.topArtists.current_range].length ){
+      this.props.dispatch(actions.getTopArtists(this.props.user.token, { limit: 10, time_range: this.props.user.topArtists.current_range }))
+    }
   }
+  /*
   render() {
     return(
       <div className="topArtists dash-block">
@@ -60,4 +44,29 @@ export default class TopArtists extends React.Component {
       </div>
     )
   }
+  */
+  render() {
+    console.log('top-artsts', this.props)
+    return(
+      <div className="topArtists dash-block">
+        <h2>{this.props.user.topArtists[this.props.user.topArtists.current_range] ? `Top 10 Artists` : `Loading top artists...`}</h2>
+          <div className="select-wrapper">
+            <select onChange={this.changeRange.bind(this)} value={this.props.user.topArtists.current_range}>
+              <option value="long_term">All Time</option>
+              <option value="medium_term">6 Months</option>
+              <option value="short_term">Recent</option>
+            </select>
+          </div>
+          <ul>
+            {
+              this.props.user.topArtists[this.props.user.topArtists.current_range].map((artist) => {
+                return <li key={artist.id}><Link to={`/artist/${artist.id}`}>{artist.name}</Link></li>
+              })
+            }
+          </ul>
+      </div>
+    )
+  }
 }
+
+export default connect(mapStateToProps)(TopArtists);

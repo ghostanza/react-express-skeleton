@@ -1,10 +1,40 @@
 import React from 'react';
-import {getArtists, getArtistTopTracks, getAudioFeatures, getArtistAlbums} from 'spotify';
+import { connect } from 'react-redux';
+import * as artistActions from 'actions/artistActions'
 import ArtistTopTracks from './page-components/artist/ArtistTopTracks';
 import TopTracksOverview from './page-components/artist/TopTracksOverview';
 import ArtistInfo from './page-components/artist/ArtistInfo';
 import ArtistAlbums from './page-components/artist/ArtistAlbums';
 
+function mapStateToProps(state, ownProps){
+  return {...state, url_params: ownProps.match.params}
+}
+
+class ArtistPage extends React.Component {
+  componentWillMount(){
+    if((this.props.artist.current_id != this.props.url_params.id) && this.props.user.token.length){
+        this.props.dispatch(artistActions.setCurrentArtist(this.props.url_params.id));
+        this.props.dispatch(artistActions.getArtistInfo(this.props.user.token, this.props.url_params.id));
+        this.props.dispatch(artistActions.getArtistAlbums(this.props.user.token, this.props.url_params.id));
+        this.props.dispatch(artistActions.getArtistTopTracks(this.props.user.token, this.props.url_params.id));
+    }
+  }
+  render() {
+    console.log(this.props);
+    return (
+      <div className='artist-contain'>
+        <div className='contents'>
+          { Object.keys(this.props.artist.info).length > 0 ? (<ArtistInfo info={this.props.artist.info} />) : '' }
+          <div className='info'>
+            { this.props.artist.albums.length > 0 ? (<ArtistAlbums albums={this.props.artist.albums} />) : ''}
+          </div>
+        </div>
+      </div>
+    );
+  }
+}
+
+/*
 export default class Other extends React.Component {
   constructor(props){
     super(props);
@@ -53,3 +83,6 @@ export default class Other extends React.Component {
     )
   }
 }
+*/
+
+export default connect(mapStateToProps)(ArtistPage);
