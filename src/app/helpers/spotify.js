@@ -67,6 +67,9 @@ module.exports.getRecentlyPlayed = (token, options) => {
 
 /********* TRACK RELATED ENDPOINTS *******************/
 // returns detailed information about a given track ID
+/* link to old EchoNest docs on interpreting the output of this call, the spotify docs don't have this explained yet:
+https://web.archive.org/web/20160528174915/http://developer.echonest.com/docs/v4/_static/AnalyzeDocumentation.pdf
+*/
 module.exports.getAudioAnalysis = (token, track_id) => {
   if(token && track_id){
     var config = { headers: {'Authorization': `Bearer ${token}`} };
