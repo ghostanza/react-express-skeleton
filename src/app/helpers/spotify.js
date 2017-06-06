@@ -68,7 +68,7 @@ module.exports.getRecentlyPlayed = (token, options) => {
 /********* TRACK RELATED ENDPOINTS *******************/
 // returns detailed information about a given track ID
 module.exports.getAudioAnalysis = (token, track_id) => {
-  if(token && id){
+  if(token && track_id){
     var config = { headers: {'Authorization': `Bearer ${token}`} };
     return axios.get(`https://api.spotify.com/${version}/audio-analysis/${track_id}`, config);
   }

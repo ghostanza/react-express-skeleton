@@ -24,10 +24,8 @@ class MyTop extends React.Component {
     }
   }
   render() {
-    console.log('rendering top artists',this.props);
     var type = this.props.type,
         page = type.replace(/s$/i, '');
-    console.log('page', page);
     return(
       <div className="topArtists dash-block">
         <h2>{this.props.user.top[type][this.props.user.top[type].current_range] ? `Top 10 ${ type }` : `Loading top ${ type }...`}</h2>
