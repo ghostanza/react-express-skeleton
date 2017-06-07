@@ -7,8 +7,11 @@ export default class Header extends React.Component {
   render() {
     return(
       <div className='header-contain'>
-        <Welcome name={this.props.name} />
-        <NavBar />
+        { this.props.name ? (
+          <div>
+          <Welcome name={this.props.name} />
+          <NavBar />
+        </div>) : ''}
       </div>
     )
   }
