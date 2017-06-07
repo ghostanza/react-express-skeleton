@@ -1,7 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import * as actions from 'actions/genreActions';
-import { Link } from 'react-router-dom';
 import Loader from 'components/main/Loader';
 import GenreArtists from 'page_components/genre/GenreArtists';
 

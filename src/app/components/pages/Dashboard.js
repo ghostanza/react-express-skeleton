@@ -2,9 +2,8 @@ import React from 'react';
 import { connect } from 'react-redux';
 import LoginButton from './page-components/dashboard/LoginButton';
 import MyTop from './page-components/dashboard/MyTop';
-import RecentlyPlayed from './page-components/dashboard/RecentlyPlayed';
-import CurrentlyPlaying from './page-components/dashboard/CurrentlyPlaying';
-import {Link} from 'react-router-dom';
+//import RecentlyPlayed from './page-components/dashboard/RecentlyPlayed';
+//import CurrentlyPlaying from './page-components/dashboard/CurrentlyPlaying';
 
 function mapStateToProps(state){
   return {
@@ -28,5 +27,3 @@ class Dashboard extends React.Component {
 }
 
 export default connect(mapStateToProps)(Dashboard);
-/*<RecentlyPlayed token={this.props.token} />
-<CurrentlyPlaying token={this.props.token}/>*/
