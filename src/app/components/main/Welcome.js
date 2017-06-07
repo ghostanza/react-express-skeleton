@@ -1,5 +1,6 @@
 import React from 'react';
 import * as spotify from 'spotify';
+import {Link} from 'react-router-dom';
 
 export default class Welcome extends React.Component {
   /*
@@ -26,6 +27,7 @@ export default class Welcome extends React.Component {
             <div className='msg-and-controls'>
               <h2 className='welcome-msg'>{`${this.props.name}'s dashboard.`}</h2>
               <span onClick={this.logout}>Log Out</span>
+              <Link to="/" className='nav-link'>Home</Link>
             </div>
       </div>
     )
