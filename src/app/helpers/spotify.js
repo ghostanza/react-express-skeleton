@@ -135,9 +135,9 @@ module.exports.getAllArtistInfo = (token, artist_id, country, options) => {
 }
 
 module.exports.getGenreArtists = (token, genre) => {
-  var genre = genre.replace(/ /g, "%20"),
+  var genre = genre.replace(/ /g, "%20").replace(/&/g, "%26"),
       config = { headers: {'Authorization': `Bearer ${token}`} };
-  return axios.get(`https://api.spotify.com/${version}/search?q=genre:%22${genre}%22&type=artist`);
+  return axios.get(`https://api.spotify.com/${version}/search?q=genre:%22${genre}%22&type=artist`, config);
 }
 
 /***** TODO *****

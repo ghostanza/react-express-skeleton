@@ -148,6 +148,7 @@ a {
     text-align: center;
     margin: 0;
     font-size: 10vmax;
+    line-height: 8vmax;
     position: relative;
     z-index: 2;
     text-transform: uppercase; }
@@ -273,12 +274,84 @@ a {
     .artist-contain .albums-container.dash-block .album:hover span {
       opacity: 1; }
 
-.track-contain {
+.genre-block ul {
+  position: relative;
+  z-index: 3;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  width: 80%;
+  text-align: center;
+  margin: 10px auto; }
+  .genre-block ul li {
+    display: inline-block;
+    padding: 0px 10px;
+    position: relative; }
+    .genre-block ul li a {
+      color: black;
+      font-family: sans-serif;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      font-weight: bold;
+      font-size: 11px; }
+      .genre-block ul li a:hover {
+        color: magenta; }
+    .genre-block ul li:nth-child(n+2):before {
+      content: '/';
+      position: absolute;
+      left: 0;
+      font-size: 11px; }
+
+.track-contain, .genre-contain {
   display: flex;
   align-items: center;
   justify-content: center;
   width: 100%;
   height: 100%; }
+
+.genre-contain h1 {
+  font-family: "Barrio", sans-serif;
+  text-align: center;
+  margin: 0;
+  font-size: 4vmax;
+  position: relative;
+  z-index: 2;
+  text-transform: uppercase; }
+
+.genre-contain ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  width: 80%;
+  text-align: center;
+  margin: 40px auto; }
+  .genre-contain ul li {
+    display: inline-block;
+    width: 175px;
+    height: 175px;
+    border-radius: 50%;
+    position: relative;
+    overflow: hidden;
+    border: 1px solid rgba(0, 0, 0, 0.2); }
+    .genre-contain ul li:hover {
+      border: 1px solid magenta; }
+    .genre-contain ul li span {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(0, 0, 0, 0.7);
+      color: magenta;
+      opacity: 0;
+      transition: all 0.4s;
+      position: absolute; }
+      .genre-contain ul li span:hover {
+        opacity: 1; }
+    .genre-contain ul li img {
+      height: 100%;
+      min-width: 100%; }
 
 .loader {
   width: 50px;

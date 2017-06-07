@@ -3,7 +3,7 @@ const initialState = {
   info: {},
   analysis: {},
   features: {},
-  is_loading: false
+  isLoading: false
 };
 
 export default function reducer(state = initialState, action){
@@ -40,7 +40,7 @@ export default function reducer(state = initialState, action){
     case "GET_ALL_TRACK_INFO_FULFILLED": {
       return {
         ...state,
-        info: action.payload[0].data, 
+        info: action.payload[0].data,
         features: action.payload[1].data,
         analysis: action.payload[2].data,
         isLoading: false
