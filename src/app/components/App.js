@@ -11,25 +11,13 @@ function mapStateToProps(state){
 
 
 class App extends React.Component {
-  /*
-  constructor(props){
-    super(props);
-    this.state = {
-      token: document.cookie.replace(/.*token=([^;]*).*$/,"$1")
-    }
-  }*/
-
-  /*{this.state.token ? (
-    <Header token={this.state.token}/>
-  ) : ''}
-  <Main token={this.state.token}/></h1> */
   componentWillMount(){
     if(this.props.user.token){
       this.props.dispatch(getUserInfo(this.props.user.token));
     }
   }
   render() {
-    if(localStorage){localStorage.setItem('appState', JSON.stringify(this.props))}
+    if(localStorage){localStorage.setItem('appUserState', JSON.stringify(this.props.user))}
     return(
       <div>
         { this.props.user.info.id ? (
