@@ -1,11 +1,9 @@
 const initialState = {
   current_track_id: '',
   info: {},
-  analysis: {
-    isLoading: true,
-    data: {}
-  },
-  features: {}
+  analysis: {},
+  features: {},
+  is_loading: false
 };
 
 export default function reducer(state = initialState, action){
@@ -33,6 +31,20 @@ export default function reducer(state = initialState, action){
     }
     case "GET_TRACK_FEATURES_FULFILLED": {
       return { ...state, features: action.payload.data };
+      break;
+    }
+    case "GET_ALL_TRACK_INFO_PENDING": {
+      return {...state, isLoading: true }
+      break;
+    }
+    case "GET_ALL_TRACK_INFO_FULFILLED": {
+      return {
+        ...state,
+        info: action.payload[0].data, 
+        features: action.payload[1].data,
+        analysis: action.payload[2].data,
+        isLoading: false
+      };
       break;
     }
   }

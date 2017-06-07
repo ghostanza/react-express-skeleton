@@ -87,6 +87,19 @@ module.exports.getAudioFeatures = (token, track_ids) => {
   else{  return Promise.resolve(''); }
 }
 
+module.exports.getTrackInfo = (token, track_id) => {
+  if(token && track_id){
+    var config = { headers: {'Authorization': `Bearer ${token}`} };
+    return axios.get(`https://api.spotify.com/${version}/tracks/${track_id}`, config);
+  }
+}
+
+module.exports.getAllTrackInfo = (token, track_id) => {
+  if(token && track_id){
+    return axios.all([module.exports.getTrackInfo(token, track_id), module.exports.getAudioFeatures(token, track_id), module.exports.getAudioAnalysis(token, track_id)]);
+  }
+}
+
 
 /******* ARTIST RELATED ENDPOINTS **********/
 module.exports.getArtists = (token, artist_ids) => {
@@ -103,12 +116,6 @@ module.exports.getArtistTopTracks = (token, artist_id, country = 'US') => {
   return axios.get(`https://api.spotify.com/${version}/artists/${artist_id}/top-tracks?country=${country}`, config);
 }
 
-module.exports.getGenreArtists = (token, genre) => {
-  var genre = genre.replace(/ /g, "%20"),
-      config = { headers: {'Authorization': `Bearer ${token}`} };
-  return axios.get(`https://api.spotify.com/${version}/search?q=genre:%22${genre}%22&type=artist`);
-}
-
 module.exports.getArtistAlbums = (token, artist_id, options) => {
   var config = { headers: {'Authorization': `Bearer ${token}`} };
   var query='';
@@ -123,6 +130,15 @@ module.exports.getArtistAlbums = (token, artist_id, options) => {
   return axios.get(`https://api.spotify.com/${version}/artists/${artist_id}/albums/${query}`, config);
 }
 
+module.exports.getAllArtistInfo = (token, artist_id, country, options) => {
+  return axios.all([module.exports.getArtists(token, artist_id), module.exports.getRelatedArtists(token, artist_id), module.exports.getArtistTopTracks(token, artist_id, country), module.exports.getArtistAlbums(token, artist_id, options)]);
+}
+
+module.exports.getGenreArtists = (token, genre) => {
+  var genre = genre.replace(/ /g, "%20"),
+      config = { headers: {'Authorization': `Bearer ${token}`} };
+  return axios.get(`https://api.spotify.com/${version}/search?q=genre:%22${genre}%22&type=artist`);
+}
 
 /***** TODO *****
 

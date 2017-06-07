@@ -18,16 +18,14 @@ class TrackPage extends React.Component {
         token = this.props.token;
     if(token && this.props.track.current_track_id != track_id ){
       this.props.dispatch(actions.setTrackId(track_id));
-      //this.props.dispatch(actions.getTrackInfo(token));
-      this.props.dispatch(actions.getTrackAnalysis(token, track_id));
-      this.props.dispatch(actions.getTrackFeatures(token, track_id));
+      this.props.dispatch(actions.getAllTrackInfo(token, track_id));
     }
   }
   render() {
     console.log(this.props);
     return(
       <div className='track-contain'>
-        { this.props.track.analysis.isLoading ? (<Loader />) : 'got the data'}
+        { this.props.track.isLoading ? (<Loader />) : 'got the data'}
       </div>
     )
   }

@@ -4,6 +4,7 @@ export default function reducer(state={
   albums: [],
   top_tracks: [],
   related_artists: [],
+  isLoading: false,
 }, action){
   switch(action.type){
     case 'SET_CURRENT_ARTIST':{
@@ -23,6 +24,21 @@ export default function reducer(state={
     }
     case 'GET_ARTIST_TOP_TRACKS_FULFILLED': {
       return { ...state, top_tracks: action.payload.data.tracks };
+      break;
+    }
+    case 'GET_ALL_ARTIST_INFO_PENDING': {
+      return { ...state, isLoading: true }
+      break;
+    }
+    case 'GET_ALL_ARTIST_INFO_FULFILLED': {
+      return {
+        ...state,
+        info: action.payload[0].data,
+        related_artists: action.payload[1].data.artists,
+        top_tracks: action.payload[2].data.tracks,
+        albums: action.payload[3].data.items,
+        isLoading: false
+      }
       break;
     }
   }

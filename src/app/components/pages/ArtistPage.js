@@ -7,17 +7,16 @@ import ArtistInfo from './page-components/artist/ArtistInfo';
 import ArtistAlbums from './page-components/artist/ArtistAlbums';
 
 function mapStateToProps(state, ownProps){
-  return {...state, url_params: ownProps.match.params}
+  return {token: state.user.token, artist: state.artist, url_params: ownProps.match.params}
 }
 
 class ArtistPage extends React.Component {
   componentWillMount(){
-    if((this.props.artist.current_artist_id != this.props.url_params.id) && this.props.user.token.length){
-        this.props.dispatch(artistActions.setCurrentArtist(this.props.url_params.id));
-        this.props.dispatch(artistActions.getArtistInfo(this.props.user.token, this.props.url_params.id));
-        this.props.dispatch(artistActions.getRelatedArtists(this.props.user.token, this.props.url_params.id));
-        this.props.dispatch(artistActions.getArtistAlbums(this.props.user.token, this.props.url_params.id));
-        this.props.dispatch(artistActions.getArtistTopTracks(this.props.user.token, this.props.url_params.id));
+    var token = this.props.token,
+        artist_id = this.props.url_params.id;
+    if((this.props.artist.current_artist_id != artist_id) && token.length){
+        this.props.dispatch(artistActions.setCurrentArtist(artist_id));
+        this.props.dispatch(artistActions.getAllArtistInfo(token, artist_id));
     }
   }
   render() {

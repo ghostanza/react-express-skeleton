@@ -30,3 +30,9 @@ export function getArtistTopTracks(token, id){
     payload: spotify.getArtistTopTracks(token, id)
   }
 }
+export function getAllArtistInfo(token, id){
+  return {
+    type: "GET_ALL_ARTIST_INFO",
+    payload: spotify.getAllArtistInfo(token, id, 'US', {album_type: 'album', limit: 50})
+  }
+}
