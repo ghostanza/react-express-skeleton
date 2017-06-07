@@ -32,6 +32,9 @@ a{
     color: magenta;
   }
 }
+.nav-link{
+  color: #222;
+}
 .main-wrap, .main-dash{
   width: 100%;
   height: 100%;
@@ -68,6 +71,8 @@ a{
   position: fixed;
   top:0;
   z-index: 9;
+  background: white;
+  padding-bottom: 5px;
   width: 100%;
   & h2, & span, & p{
     font-size: 10px;
@@ -90,8 +95,49 @@ a{
     color: magenta;
   }
 }
-.nav-bar{
+.search-bar{
   float: right;
+  width: 50%;
+  text-align: right;
+  & input[type='text']{
+    width:75%;
+    border: 0;
+    border-left: 2px solid transparent;
+    border-right: 2px solid transparent;
+    border-bottom: 2px solid magenta;
+    line-height: 30px;
+    padding: 0;
+    font-size: 13px;
+    border-radius: 0;
+    transition: all 0.3s;
+    letter-spacing: 0.75px;
+    text-align: center;
+    outline: none;
+    color: black;
+    &:focus{
+      border-left: 2px solid magenta;
+      border-right: 2px solid magenta;
+      color: magenta;
+    }
+  }
+  & button.search-btn{
+    cursor: pointer;
+    outline: none;
+    display: inline-block;
+    border: 0;
+    background: white;
+    font-family: $body-font;
+    border-bottom: 2px solid magenta;
+    line-height: 30px;
+    color: #222;
+    text-transform: uppercase;
+    font-size:16px;
+    padding: 0px 15px;
+    margin: 0px 10px;
+    &:hover{
+      background: magenta; color: white;
+    }
+  }
 }
 .main-contain{
   clear: both;
@@ -376,7 +422,9 @@ a{
   }
 }
 
-
+.nav-link{
+  display: block;
+}
 
 .loader{
 	width: 50px;

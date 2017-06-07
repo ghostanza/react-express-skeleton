@@ -19,6 +19,9 @@ a {
   a:hover {
     color: magenta; }
 
+.nav-link {
+  color: #222; }
+
 .main-wrap, .main-dash {
   width: 100%;
   height: 100%;
@@ -56,6 +59,8 @@ a {
   position: fixed;
   top: 0;
   z-index: 9;
+  background: white;
+  padding-bottom: 5px;
   width: 100%; }
   .header-contain h2, .header-contain span, .header-contain p {
     font-size: 10px;
@@ -75,8 +80,46 @@ a {
   .welcome-bar span:hover {
     color: magenta; }
 
-.nav-bar {
-  float: right; }
+.search-bar {
+  float: right;
+  width: 50%;
+  text-align: right; }
+  .search-bar input[type='text'] {
+    width: 75%;
+    border: 0;
+    border-left: 2px solid transparent;
+    border-right: 2px solid transparent;
+    border-bottom: 2px solid magenta;
+    line-height: 30px;
+    padding: 0;
+    font-size: 13px;
+    border-radius: 0;
+    transition: all 0.3s;
+    letter-spacing: 0.75px;
+    text-align: center;
+    outline: none;
+    color: black; }
+    .search-bar input[type='text']:focus {
+      border-left: 2px solid magenta;
+      border-right: 2px solid magenta;
+      color: magenta; }
+  .search-bar button.search-btn {
+    cursor: pointer;
+    outline: none;
+    display: inline-block;
+    border: 0;
+    background: white;
+    font-family: "Barrio", sans-serif;
+    border-bottom: 2px solid magenta;
+    line-height: 30px;
+    color: #222;
+    text-transform: uppercase;
+    font-size: 16px;
+    padding: 0px 15px;
+    margin: 0px 10px; }
+    .search-bar button.search-btn:hover {
+      background: magenta;
+      color: white; }
 
 .main-contain {
   clear: both; }
@@ -352,6 +395,9 @@ a {
     .genre-contain ul li img {
       height: 100%;
       min-width: 100%; }
+
+.nav-link {
+  display: block; }
 
 .loader {
   width: 50px;

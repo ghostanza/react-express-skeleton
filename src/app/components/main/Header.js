@@ -1,7 +1,7 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 import Welcome from './Welcome';
-import NavBar from './NavBar';
+import SearchBar from './SearchBar';
 
 export default class Header extends React.Component {
   render() {
@@ -10,7 +10,7 @@ export default class Header extends React.Component {
         { this.props.name ? (
           <div>
           <Welcome name={this.props.name} />
-          <NavBar />
+          <SearchBar />
         </div>) : ''}
       </div>
     )
