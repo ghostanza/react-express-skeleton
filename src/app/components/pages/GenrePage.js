@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import * as actions from 'actions/genreActions';
 import { Link } from 'react-router-dom';
 import Loader from 'components/main/Loader';
+import GenreArtists from 'page_components/genre/GenreArtists';
 
 function mapStateToProps(state, ownProps){
   return { token: state.user.token, genre: state.genre, ...ownProps }
@@ -19,25 +20,11 @@ class GenrePage extends React.Component {
     }
   }
   render() {
-    console.log(this.props);
     return(
       <div className='genre-contain'>
         <div className='contents'>
         <h1>{this.props.match.params.genre} Artists</h1>
-        {this.props.genre.isLoading ? (<Loader />) : (
-            <ul>
-              { this.props.genre.genre_artists.map((artist) => {
-                return (
-                  <li key={artist.id}>
-                    <Link to={`/artist/${artist.id}`}>
-                      <span className='genre-hover'>{artist.name}</span>
-                      <img src={artist.images[1] ? artist.images[1].url : artist.images[0].url}/>
-                    </Link>
-                  </li>
-                )
-              })}
-            </ul>
-        )}
+        {this.props.genre.isLoading ? (<Loader />) : (<GenreArtists artists={this.props.genre.genre_artists}/>)}
         </div>
       </div>
     )

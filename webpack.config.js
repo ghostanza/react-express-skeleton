@@ -19,6 +19,7 @@ let config = {
       stylesheets: path.resolve(__dirname, 'src/app/assets/stylesheets'),
       components: path.resolve(__dirname, 'src/app/components'),
       pages: path.resolve(__dirname, 'src/app/components/pages'),
+      page_components: path.resolve(__dirname, 'src/app/components/pages/page-components'),
       spotify: path.resolve(__dirname, 'src/app/helpers/spotify.js'),
       reducers: path.resolve(__dirname, 'src/app/store/reducers'),
       actions: path.resolve(__dirname, 'src/app/store/actions')
