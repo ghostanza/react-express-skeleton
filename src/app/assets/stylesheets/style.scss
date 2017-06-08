@@ -99,11 +99,10 @@ a{
   float: right;
   width: 50%;
   text-align: right;
+  margin-right: 10px;
   & input[type='text']{
-    width:75%;
+    width:60%;
     border: 0;
-    border-left: 2px solid transparent;
-    border-right: 2px solid transparent;
     border-bottom: 2px solid magenta;
     line-height: 30px;
     padding: 0;
@@ -115,9 +114,29 @@ a{
     outline: none;
     color: black;
     &:focus{
-      border-left: 2px solid magenta;
-      border-right: 2px solid magenta;
+      background: rgba(0,0,0,0.7);
       color: magenta;
+    }
+  }
+  & .select-wrapper{
+    width: 20%;
+    min-width: 60px;
+    display: inline-block;
+    margin: 0px 10px;
+    & .select-dropdown{
+      border-width: 2px;
+      color: #222;
+      font-family: $body-font;
+      font-size: 16px;
+      border-top: 0px;
+      cursor: pointer;
+      & option{
+        background: #222;
+        color: magenta;
+      }
+    }
+    &:after{
+      border-top: 10px solid magenta;
     }
   }
   & button.search-btn{
@@ -125,17 +144,17 @@ a{
     outline: none;
     display: inline-block;
     border: 0;
-    background: white;
+    background: black;
     font-family: $body-font;
     border-bottom: 2px solid magenta;
     line-height: 30px;
-    color: #222;
+    color: white;
     text-transform: uppercase;
     font-size:16px;
     padding: 0px 15px;
-    margin: 0px 10px;
+    transition: all 0.3s;
     &:hover{
-      background: magenta; color: white;
+      background: magenta;
     }
   }
 }
@@ -247,7 +266,7 @@ a{
 .topArtists.dash-block{
   min-height: 250px;
 }
-.topArtists select{
+.select-dropdown{
   appearance: none;
   -webkit-appearance: none;
   outline: none;
@@ -371,10 +390,20 @@ a{
   }
 }
 
-.track-contain, .genre-contain{
+.track-contain, .genre-contain, .search-contain{
   @include flex-center;
   width: 100%;
   height: 100%;
+}
+
+.search-contain h3{
+  font-family: $body-font;
+  font-size: 4vmax;
+  text-align: center;
+  & span.search-term{
+    color: magenta;
+    font-size: 6vmax;
+  }
 }
 
 .genre-contain h1{

@@ -30,7 +30,7 @@ class MyTop extends React.Component {
       <div className="topArtists dash-block">
         <h2>{this.props.user.top[type][this.props.user.top[type].current_range] ? `Top 10 ${ type }` : `Loading top ${ type }...`}</h2>
           <div className="select-wrapper">
-            <select onChange={this.changeRange.bind(this)} value={this.props.user.top[type].current_range}>
+            <select className="select-dropdown" onChange={this.changeRange.bind(this)} value={this.props.user.top[type].current_range}>
               <option value="long_term">All Time</option>
               <option value="medium_term">6 Months</option>
               <option value="short_term">Recent</option>

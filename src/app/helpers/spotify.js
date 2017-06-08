@@ -134,10 +134,20 @@ module.exports.getAllArtistInfo = (token, artist_id, country, options) => {
   return axios.all([module.exports.getArtists(token, artist_id), module.exports.getRelatedArtists(token, artist_id), module.exports.getArtistTopTracks(token, artist_id, country), module.exports.getArtistAlbums(token, artist_id, options)]);
 }
 
-module.exports.getGenreArtists = (token, genre) => {
-  var genre = genre.replace(/ /g, "%20").replace(/&/g, "%26"),
+/*** SEARCH RELATED ENDPOINTS ***/
+
+module.exports.getGenreArtists = (token, genre, limit=20) => {
+  var genre = encodeURIComponent(genre),
       config = { headers: {'Authorization': `Bearer ${token}`} };
-  return axios.get(`https://api.spotify.com/${version}/search?q=genre:%22${genre}%22&type=artist`, config);
+  return axios.get(`https://api.spotify.com/${version}/search?q=genre:%22${genre}%22&type=artist&limit=${limit}`, config);
+}
+
+module.exports.getSearchResults = (token, searchType, query) => {
+  var query = encodeURIComponent(query),
+      config = { headers: {'Authorization': `Bearer ${token}`} },
+      // TODO:  Change the hard-coded limit to an object so you can pass offsets too for multiple pages
+      limit = 50;
+  return axios.get(`https://api.spotify.com/${version}/search?q=${query}&type=${searchType}&limit=50`, config);
 }
 
 /***** TODO *****
