@@ -21,21 +21,21 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, '../../public')));
 
 // use morgan to log requests
-app.use(morgan(':remote-addr - :remote-user [:date[web]] ":method :url HTTP/:http-version" :status ":user-agent"', {stream: accessLog}));
+//app.use(morgan(':remote-addr - :remote-user [:date[web]] ":method :url HTTP/:http-version" :status ":user-agent"', {stream: accessLog}));
 
 // use the router
 app.use(routes);
 
 // 404 handler
 app.use((req, res, next) => {
-  logger.log_404(req);
+  //logger.log_404(req);
   res.status(404);
   res.redirect('/');
 });
 
 // 500 handler
 app.use((err, req, res, next) => {
-  logger.log_500(err, req);
+  //logger.log_500(err, req);
   res.send("500 error");
 });
 
