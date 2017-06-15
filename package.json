@@ -7,7 +7,7 @@
     "test": "jest",
     "watch": "webpack --watch",
     "dev": "webpack-dev-server -d --hot --config webpack.config.js --watch",
-    "start": "NODE_ENV=production webpack; node src/server/server.js",
+    "start": "node src/server/server.js",
     "build:dev": "NODE_ENV=development webpack",
     "build:prod": "NODE_ENV=production webpack"
   },

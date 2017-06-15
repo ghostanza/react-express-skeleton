@@ -1,6 +1,5 @@
 var url = require('url'),
-    request = require('request'),
-    queryString = require('queryString');
+    request = require('request');
 
 module.exports.tokenRequest = (code, res, req) => {
   var options = {

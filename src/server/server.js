@@ -41,5 +41,5 @@ app.use((err, req, res, next) => {
 
 
 app.listen(port);
-console.log(chalk.bold.green(`Listening on port ${port}`));
+console.log(chalk.bold.green(`Listening on port ${port}!`));
 module.exports = app;
