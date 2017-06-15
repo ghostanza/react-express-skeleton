@@ -82,6 +82,11 @@ module.exports = config;
 if(process.env.NODE_ENV === 'production'){
   module.exports.devtool = 'source-map';
   module.exports.plugins.push(
+      new webpack.DefinePlugin({
+        'process.env' : {
+          'NODE_ENV' : JSON.stringify('production')
+        }
+      }),
       new webpack.optimize.OccurrenceOrderPlugin(),
       new webpack.optimize.UglifyJsPlugin({
         compressor: {
