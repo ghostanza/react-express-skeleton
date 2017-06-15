@@ -2,6 +2,7 @@ const webpack = require('webpack');
 const path = require('path');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+const CompressionPlugin = require("compression-webpack-plugin");
 const OptimizeCSSAssets = require('optimize-css-assets-webpack-plugin');
 const extractStyles = new ExtractTextPlugin('styles.css');
 
@@ -79,8 +80,14 @@ let config = {
 module.exports = config;
 
 if(process.env.NODE_ENV === 'production'){
+  module.exports.devtool = 'source-map';
   module.exports.plugins.push(
-      new webpack.optimize.UglifyJsPlugin(),
+      new webpack.optimize.OccurrenceOrderPlugin(),
+      new webpack.optimize.UglifyJsPlugin({
+        compressor: {
+          warnings: false
+        }
+      }),
       new OptimizeCSSAssets()
   )
 }
