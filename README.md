@@ -1,7 +1,7 @@
 # react-express-skeleton
 NEED TO UPDATE: This is no longer a skeleton, it has evolved and is now a Spotify-fueled web app. I will be updating the repo name soon.
 
-This project is a music discovery web app fueled by the Spotify API. It was done in an effort to teach myself some new things and practice some of the basics of using Express to handle OAuth requests server-side, as well as learn React, Redux, Webpack, and the Spotify API.
+This project is a music discovery/information web app fueled by the Spotify API. It was done in an effort to teach myself some new things and practice some of the basics of using Express to handle OAuth requests server-side, as well as learn React, Redux, Webpack, and the Spotify API.
 
 ## Overview
 ### Technology:
@@ -76,5 +76,7 @@ There is also `image-webpack-loader` to help optimize image assets.
 ### Testing:
 The current setup uses Jest with Enzyme as its testing framework.
 
-### Other information:
+---
+
+## Other information:
 This project, as mentioned, was done in an effort to get more familiar with Express, React, Redux, Webpack, and some other technologies. Amidst learning these, I am trying to do so with best practices in mind but being new to some of it there are definitely areas to grow in.
