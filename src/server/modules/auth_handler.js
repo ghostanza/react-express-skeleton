@@ -20,9 +20,9 @@ module.exports.tokenRequest = (code, res, req) => {
     var token = body.access_token,
         maxAge = body.expires_in,
         expiration = new Date(Number(new Date()) + (maxAge * 1000));
-    console.log("ACCESS TOKEN: ", token);
-    console.log("ACCESS EXPIRATION: ", maxAge);
-    console.log("EXPIRES: ", new Date(Number(new Date()) + (maxAge*1000)));
+    //console.log("ACCESS TOKEN: ", token);
+    //console.log("ACCESS EXPIRATION: ", maxAge);
+    //console.log("EXPIRES: ", new Date(Number(new Date()) + (maxAge*1000)));
     res.cookie('token', token, { 'expires': expiration, httpOnly: false });
     res.redirect('/');
   });

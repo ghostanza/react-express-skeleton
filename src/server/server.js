@@ -10,6 +10,7 @@ var express = require('express'),
     session = require('express-session'),
     logger = require('./modules/logger.js'),
     routes = require('./routes/main.js'),
+    port = process.env.PORT || 8080,
     accessLog = fs.createWriteStream(path.join(__dirname, './logs/access.log'), {flags: 'a'});
 
 var app = express();
@@ -39,6 +40,6 @@ app.use((err, req, res, next) => {
 });
 
 
-app.listen('8080', '127.0.0.1');
-console.log(chalk.bold.green("Listening on port 8080!"));
+app.listen(port);
+console.log(chalk.bold.green(`Listening on port ${port}`));
 module.exports = app;
