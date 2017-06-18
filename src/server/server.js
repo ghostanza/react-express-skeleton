@@ -28,14 +28,14 @@ app.use(routes);
 
 // 404 handler
 app.use((req, res, next) => {
-  logger.log_404(req);
+  //logger.log_404(req);
   res.status(404);
   res.redirect('/');
 });
 
 // 500 handler
 app.use((err, req, res, next) => {
-  logger.log_500(err, req);
+  //logger.log_500(err, req);
   res.send("500 error");
 });
 
