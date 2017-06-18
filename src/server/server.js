@@ -21,7 +21,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, '../../public')));
 
 // use morgan to log requests
-app.use(morgan(':remote-addr - :remote-user [:date[web]] ":method :url HTTP/:http-version" :status ":user-agent"', {stream: accessLog}));
+//app.use(morgan(':remote-addr - :remote-user [:date[web]] ":method :url HTTP/:http-version" :status ":user-agent"', {stream: accessLog}));
 
 // use the router
 app.use(routes);
