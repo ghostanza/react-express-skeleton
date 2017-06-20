@@ -377,7 +377,7 @@ a {
 .genre-contain {
   margin-top: 80px; }
 
-.genre-contain h1 {
+.genre-contain h1, .search-contain h1 {
   font-family: "Barrio", sans-serif;
   text-align: center;
   margin: 0;
@@ -386,14 +386,14 @@ a {
   z-index: 2;
   text-transform: uppercase; }
 
-.genre-contain ul {
+.genre-contain ul, .search-contain ul {
   list-style: none;
   margin: 0;
   padding: 0;
   width: 80%;
   text-align: center;
   margin: 40px auto; }
-  .genre-contain ul li {
+  .genre-contain ul li, .search-contain ul li {
     display: inline-block;
     width: 250px;
     height: 300px;
@@ -405,12 +405,12 @@ a {
     position: relative;
     overflow: hidden;
     border: 1px solid rgba(0, 0, 0, 0.2); }
-    .genre-contain ul li a {
+    .genre-contain ul li a, .search-contain ul li a {
       display: block;
       position: relative;
       width: 100%;
       height: 100%; }
-    .genre-contain ul li span {
+    .genre-contain ul li span, .search-contain ul li span {
       width: 100%;
       height: 50px;
       display: flex;
@@ -480,10 +480,11 @@ a {
     background: white; }
   .main-dash {
     height: 100%;
-    display: block; }
+    display: block;
+    padding-top: 15px; }
   .dash-block {
     width: 90%;
-    margin: 10px auto;
+    margin: 0 auto 20px auto;
     float: none;
     box-sizing: border-box; }
     .dash-block ul {
@@ -517,12 +518,16 @@ a {
     .search-bar input[type='text'] {
       display: block;
       width: 90%;
+      color: white;
       margin: 0 auto;
-      line-height: 40px;
+      font-size: 16px;
+      font-weight: 200;
+      line-height: 45px;
       border-radius: 10px;
       background: black;
       border: 1px solid magenta; }
       .search-bar input[type='text']:focus {
+        color: magenta;
         box-shadow: 0px 0px 20px magenta; }
     .search-bar .select-wrapper {
       display: block;
@@ -575,14 +580,19 @@ a {
           font-size: 13px;
           line-height: 20px;
           letter-spacing: 0.75px; }
-  .genre-contain {
-    margin: 0; }
-    .genre-contain h1 {
+  .genre-contain, .search-contain {
+    margin: 0;
+    display: block; }
+    .genre-contain h1, .search-contain h1 {
       position: fixed;
       top: 0;
+      margin: 0;
+      text-align: center;
       width: 100%;
       padding: 15px 0;
       background: magenta;
-      color: white; }
-    .genre-contain .results-container {
+      color: white;
+      font-family: "Barrio", sans-serif;
+      font-size: 25px; }
+    .genre-contain .results-container, .search-contain .results-container {
       padding-top: 80px; } }

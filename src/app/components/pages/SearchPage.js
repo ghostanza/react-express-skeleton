@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import * as actions from 'actions/searchActions';
+import ArtistResults from 'page_components/search/ArtistResults';
 
 function mapStateToProps(state, ownProps){
   return { token: state.user.token, search: state.search, ...ownProps }
@@ -23,20 +24,18 @@ class SearchPage extends React.Component {
     if(prevProps.location.pathname !== this.props.location.pathname){
       this.fetchData();
     }
+    document.querySelectorAll('.search-contain')[0] && document.querySelectorAll('.search-contain')[0].scrollIntoView({block: 'start'});
   }
   render() {
+    var type = this.props.match.params.type.match(/artist|genre/i) ? 'artists' : `${this.props.match.params.type}s`,
+        results = this.props.search.searchResults[type];
     return (
       <div className='search-contain'>
         <div className='contents'>
-          {
-            this.props.search.searchResults[
-                this.props.match.params.type.match(/artist|genre/i) ? 'artists' : `${this.props.match.params.type}s`
-              ].length ?
-            ( <h3>Found {this.props.search.searchResults[
-                this.props.match.params.type.match(/artist|genre/i) ? 'artists' : `${this.props.match.params.type}s`
-              ].length} {this.props.match.params.type.match(/genre/i) ? (<span><span className='search-term'>{`${decodeURIComponent(this.props.match.params.query)}`}</span> Artist</span>) : this.props.match.params.type}{this.props.search.searchResults[
-                  this.props.match.params.type.match(/artist|genre/i) ? 'artists' : `${this.props.match.params.type}s`
-                ].length > 1 ? 's' : ''}{!this.props.match.params.type.match(/genre/i) ? (<span> Matching The Term:<br/><span className='search-term'>{`${decodeURIComponent(this.props.match.params.query)}`}</span></span>) : ''}</h3> ) : ( <h3>No Results</h3> )
+          <h1>{`"${decodeURIComponent(this.props.match.params.query)}"`}</h1>
+          { results.length && type === 'artists' ? (<ArtistResults artists={results} />) :
+            results.length ? (<p>FOUND SOME</p>) :
+            (<p>NO RESULTS</p>)
           }
         </div>
       </div>
