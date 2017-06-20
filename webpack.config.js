@@ -16,7 +16,7 @@ let config = {
   resolve: {
     extensions: ['.js', '.jsx', '.json', '.scss', '.sass', '.css', '.jpeg', '.jpg', '.gif', 'png'],
     alias: {
-      images: path.resolve(__dirname, 'src/app/assets/images'),
+      images: path.resolve(__dirname, 'src/app/assets/img'),
       stylesheets: path.resolve(__dirname, 'src/app/assets/stylesheets'),
       components: path.resolve(__dirname, 'src/app/components'),
       pages: path.resolve(__dirname, 'src/app/components/pages'),

@@ -10,7 +10,6 @@ export default class Navigation extends React.Component {
     }
   }
   toggleSearch(){
-    console.log('inside');
     this.setState((prevState) => {
       return { searchActive: !prevState.searchActive }
     });

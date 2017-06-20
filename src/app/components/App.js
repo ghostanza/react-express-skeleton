@@ -10,8 +10,8 @@ import { BrowserRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { getUserInfo } from 'actions/userActions';
 
-function mapStateToProps(state){
-  return { ...state }
+function mapStateToProps(state, ownProps){
+  return { ...state, ...ownProps}
 }
 
 class App extends React.Component {
