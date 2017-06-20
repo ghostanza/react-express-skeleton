@@ -8,6 +8,7 @@
     "watch": "webpack --watch",
     "dev": "webpack-dev-server -d --hot --config webpack.config.js --watch",
     "start": "node src/server/server.js",
+    "try" : "NODE_ENV=development webpack && npm start",
     "build:dev": "NODE_ENV=development webpack",
     "build:prod": "NODE_ENV=production webpack"
   },

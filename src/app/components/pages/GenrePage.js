@@ -19,6 +19,7 @@ class GenrePage extends React.Component {
     }
   }
   render() {
+    console.log(this.props.genre);
     return(
       <div className='genre-contain'>
         <div className='contents'>

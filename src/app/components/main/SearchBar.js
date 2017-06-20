@@ -23,10 +23,11 @@ class SearchBar extends React.Component {
     this.setState({searchTerm: ''});
     search_box.value='';
     search_box.blur();
+    this.props.toggleSearch();
   }
   render() {
       return(
-        <div className='search-bar'>
+        <div className={`search-bar ${this.props.isActive ? 'active' : ''}`}>
           <form onSubmit={this.handleSubmit.bind(this)}>
               <input id="search-box" type='text' placeholder='search for artist or album' onChange={this.queryInput.bind(this)}></input>
               <div className='select-wrapper'>
