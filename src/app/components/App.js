@@ -1,5 +1,5 @@
 import React from 'react';
-import Header from './main/Header';
+import Navigation from './main/Navigation';
 import {Route, Switch} from 'react-router-dom';
 import Dashboard from 'pages/Dashboard';
 import ArtistPage from 'pages/ArtistPage';
@@ -25,7 +25,6 @@ class App extends React.Component {
     return(
       <BrowserRouter>
         <div className="outer">
-          <Header name={this.props.user.info.id}/>
           <div className='main-contain'>
             <Route exact path='/' component={Dashboard}/>
             <Route path='/artist/:id' component={ArtistPage}/>
@@ -33,6 +32,7 @@ class App extends React.Component {
             <Route path='/genre/:genre' component={GenrePage}/>
             <Route path='/search/:type/:query' component={SearchPage}/>
           </div>
+          <Navigation name={this.props.user.info.id}/>
         </div>
       </BrowserRouter>
     )

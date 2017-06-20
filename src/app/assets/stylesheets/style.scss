@@ -6,6 +6,7 @@
   justify-content: center;
 }
 $bkg: #fff;
+$accent: magenta;
 $body-text: #222;
 $heading-text: magenta;
 $body-font: "Barrio", sans-serif;
@@ -29,7 +30,7 @@ a{
   color: white;
   font-family: $body-font;
   &:hover{
-    color: magenta;
+    color: $accent;
   }
 }
 .nav-link{
@@ -92,7 +93,7 @@ a{
     margin-left: 10px;
     text-decoration: underline; }
   & span:hover{
-    color: magenta;
+    color: $accent;
   }
 }
 .search-bar{
@@ -103,7 +104,7 @@ a{
   & input[type='text']{
     width:60%;
     border: 0;
-    border-bottom: 2px solid magenta;
+    border-bottom: 2px solid $accent;
     line-height: 30px;
     padding: 0;
     font-size: 13px;
@@ -115,7 +116,7 @@ a{
     color: black;
     &:focus{
       background: rgba(0,0,0,0.7);
-      color: magenta;
+      color: $accent;
     }
   }
   & .select-wrapper{
@@ -132,11 +133,11 @@ a{
       cursor: pointer;
       & option{
         background: #222;
-        color: magenta;
+        color: $accent;
       }
     }
     &:after{
-      border-top: 10px solid magenta;
+      border-top: 10px solid $accent;
     }
   }
   & button.search-btn{
@@ -146,7 +147,7 @@ a{
     border: 0;
     background: black;
     font-family: $body-font;
-    border-bottom: 2px solid magenta;
+    border-bottom: 2px solid $accent;
     line-height: 30px;
     color: white;
     text-transform: uppercase;
@@ -154,7 +155,7 @@ a{
     padding: 0px 15px;
     transition: all 0.3s;
     &:hover{
-      background: magenta;
+      background: $accent;
     }
   }
 }
@@ -193,7 +194,7 @@ a{
   background: #222;
   bottom: 0;
   color: white;
-  border-left: 3px solid magenta;
+  border-left: 3px solid $accent;
   right: 0;
   text-align: right;
   display: flex;
@@ -221,7 +222,7 @@ a{
   & h1{
     font-family: $body-font;
     text-align: center;
-    //text-shadow: 5px 5px 0px magenta, -3px -7px 0px rgba(teal, 0.7);
+    //text-shadow: 5px 5px 0px $accent, -3px -7px 0px rgba(teal, 0.7);
     margin: 0;
     font-size: 10vmax;
     line-height: 8vmax;
@@ -260,7 +261,7 @@ a{
     }
   }
   & .artist-score{
-    color: magenta;
+    color: $accent;
   }
 }
 .topArtists.dash-block{
@@ -277,7 +278,7 @@ a{
   border-radius: 0;
   border-width: 1px;
   border-style: solid;
-  border-color: magenta transparent;
+  border-color: $accent transparent;
   line-height: 20px;
   padding: 5px;
   color: white;
@@ -339,7 +340,7 @@ a{
       box-sizing: border-box;
       width: 101%;
       height: 101%;
-      color: magenta;
+      color: $accent;
       background: rgba(0,0,0,0.7);
       @include flex-center;
       opacity: 0;
@@ -379,7 +380,7 @@ a{
       letter-spacing: 0.5px;
       font-weight: bold;
       font-size: 11px;
-      &:hover{ color: magenta; }
+      &:hover{ color: $accent; }
     }
     &:nth-child(n+2):before{
       content: '/';
@@ -390,7 +391,7 @@ a{
   }
 }
 
-.track-contain, .genre-contain, .search-contain{
+.track-contain, .search-contain{
   @include flex-center;
   width: 100%;
   height: 100%;
@@ -401,15 +402,17 @@ a{
   font-size: 4vmax;
   text-align: center;
   & span.search-term{
-    color: magenta;
+    color: $accent;
     font-size: 6vmax;
   }
 }
-
+.genre-contain{
+  margin-top: 80px;
+}
 .genre-contain h1{
     font-family: $body-font;
     text-align: center;
-    //text-shadow: 5px 5px 0px magenta, -3px -7px 0px rgba(teal, 0.7);
+    //text-shadow: 5px 5px 0px $accent, -3px -7px 0px rgba(teal, 0.7);
     margin: 0;
     font-size: 4vmax;
     position:relative;
@@ -425,28 +428,33 @@ a{
   margin: 40px auto;
   & li{
     display: inline-block;
-    width: 175px;
-    height: 175px;
-    border-radius: 50%;
+    width: 250px;
+    height: 300px;
+    border-radius: 10px;
+    background-size: cover;
+    margin: 5px;
+    background-position: center center;
+    background-repeat: no-repeat;
     position: relative;
     overflow: hidden;
     border: 1px solid rgba(0,0,0,0.2);
-    &:hover{ border: 1px solid magenta; }
-    & span{
+    & a {
+      display: block;
+      position: relative;
       width: 100%;
       height: 100%;
-      border-radius: 50%;
+    }
+    & span{
+      width: 100%;
+      height: 50px;
       @include flex-center;
       background: rgba(0,0,0,0.7);
-      color: magenta;
-      opacity: 0;
+      color: $accent;
+      opacity: 1;
       transition: all 0.4s;
+      border-radius: 0px 0px 10px 10px;
       position: absolute;
-      &:hover{ opacity: 1; }
-    }
-    & img{
-      height: 100%;
-      min-width: 100%;
+      bottom: 0;
     }
   }
 }
@@ -459,7 +467,7 @@ a{
 	width: 50px;
 	height: 10px;
 	transform: skewX(45deg);
-	background: magenta;
+	background: $accent;
 	animation: loading 0.3s linear infinite;
 	box-shadow: 0px 0px 10px coral;
 }
@@ -468,4 +476,131 @@ a{
 		border-radius: 0;
 		transform: skewX(45deg) rotate(540deg);
 	}
+}
+
+@media all and (max-width: 600px){
+  .navigation-contain{
+    position: fixed;
+    bottom: 0;
+    height: 10vh;
+    min-height: 50px;
+    width: 100%;
+    z-index: 4;
+    background: #444;
+    & > div{
+      width: 100%;
+      height: 100%;
+      background: coral;
+    }
+  }
+  .navigation-bar{
+    width: 100%;
+    display: block;
+    position: relative;
+    & ul{
+      list-style: none;
+      display: flex;
+      justify-content: space-around;
+      margin: 0;
+      padding: 0;
+      & li{
+        @include flex-center;
+        height: 100%;
+        cursor: pointer;
+        font-family: sans-serif;
+        text-transform: uppercase;
+        color: magenta;
+        padding: 5px 10px;
+        box-sizing: border-box;
+        & img{
+          height: 100%;
+        }
+      }
+    }
+  }
+  .main-contain{
+    height: 90vh;
+    overflow: scroll;
+    background: white;
+  }
+  .main-dash{
+    height: 100%;
+    display: block;
+  }
+  .dash-block{
+    width: 90%;
+    margin: 10px auto;
+    float: none;
+    box-sizing: border-box;
+    & ul{
+      font-size: 20px;
+      text-align: center;
+      & a{
+        display: block;
+        padding: 3px 0;
+      }
+    }
+  }
+  .login-btn-wrap{
+    width: 100%;
+    height: 100%;
+    @include flex-center;
+    & .login-btn{
+      width: 80%;
+    }
+  }
+  .search-bar{
+    float: none;
+    width: 100%;
+    text-align: center;
+    position: absolute;
+    background: rgba(0,0,0,0.9);
+    padding: 30px 0;
+    height: 150px;
+    top: 80px;
+    box-shadow: 0px -5px 20px rgba($accent,0.7);
+    z-index: -1;
+    transition: top 0.3s ease-in-out;
+    &.active{
+      top: -210px;
+    }
+    & input[type='text']{
+      display: block;
+      width: 90%;
+      margin: 0 auto;
+      line-height: 40px;
+      border-radius: 10px;
+      background: black;
+      border: 1px solid $accent;
+      &:focus{
+        box-shadow: 0px 0px 20px $accent;
+      }
+    }
+    & .select-wrapper{
+      display: block;
+      width: 90%;
+      margin: 0 auto;
+      & .select-dropdown{
+        line-height: 40px;
+        padding-left: 20px;
+        font-size: 20px;
+        color: white;
+        border-radius: 10px;
+        border: 1px solid $accent;
+        border-top: 1px solid $accent;
+      }
+      &:after{
+        top: 45%;
+        right: 15px;
+      }
+    }
+    & button.search-btn{
+      display: block;
+      width: 80%;
+      margin: 0 auto;
+      border-radius: 10px;
+      background: $accent;
+      line-height: 40px;
+    }
+  }
 }
