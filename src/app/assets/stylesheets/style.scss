@@ -510,6 +510,7 @@ a{
         padding: 10px;
         box-sizing: border-box;
         & img{
+          cursor: pointer;
           height: 100%;
         }
       }

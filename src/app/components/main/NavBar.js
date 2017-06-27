@@ -27,7 +27,7 @@ export default class NavBar extends React.Component {
             <img className='search-exit' style={{'display' : this.props.searchActive ? 'block' : 'none' }}src={searchX}/>
             <img className='search-icon' style={{'display' : this.props.searchActive ? 'none' : 'block' }} src={search}/>
           </li>
-          <li onClick={this.logout}><img src={logout}/></li>
+          <li><img src={logout} onClick={this.logout}/></li>
         </ul>
       </div>
     )
