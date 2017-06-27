@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import * as actions from 'actions/searchActions';
-import ArtistResults from 'page_components/search/ArtistResults';
+import SearchResults from 'page_components/search/SearchResults';
 
 function mapStateToProps(state, ownProps){
   return { token: state.user.token, search: state.search, ...ownProps }
@@ -33,10 +33,7 @@ class SearchPage extends React.Component {
       <div className='search-contain'>
         <div className='contents'>
           <h1>{`"${decodeURIComponent(this.props.match.params.query)}"`}</h1>
-          { results.length && type === 'artists' ? (<ArtistResults artists={results} />) :
-            results.length ? (<p>FOUND SOME</p>) :
-            (<p>NO RESULTS</p>)
-          }
+          { results.length ? (<SearchResults results={results} type={type} />) : '' }
         </div>
       </div>
     );

@@ -517,7 +517,7 @@ a{
     }
   }
   .main-contain{
-    height: 90vh;
+    height: 85vh;
     overflow: scroll;
     background: white;
   }
@@ -625,7 +625,8 @@ a{
       text-align: center;
     }
     & h1{
-      margin: 15px 0 10px 0;
+      margin: 15px auto 10px auto;
+      font-size: 15vw;
     }
     & .artist-img{
       width: 50vmin;
@@ -671,12 +672,12 @@ a{
         & a{
           color: #333;
           font-size: 12px;
-          font-weight: 200;
+          font-weight: bold;
           padding: 10px;
           line-height: 10px;
           font-family: sans-serif;
           display: inline-block;
-          border-bottom: 1px solid rgba(0,0,0,0.3);
+          border: 1px solid rgba(255,0,255,0.3);
           box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
           border-radius: 10px;
           &:hover{
@@ -720,7 +721,6 @@ a{
       & ul{
       width: 100%;
         & li a{
-          font-weight: 200;
           font-size: 13px;
           line-height: 20px;
           letter-spacing: 0.75px;
