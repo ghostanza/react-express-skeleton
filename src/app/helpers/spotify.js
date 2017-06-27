@@ -109,7 +109,7 @@ module.exports.getArtists = (token, artist_ids) => {
 
 module.exports.getRelatedArtists = (token, artist_id) => {
   var config = { headers: {'Authorization': `Bearer ${token}`} };
-  return axios.get(`https://api.spotify.com/${version}/artists/${artist_id}/related-artists`, config);
+  return axios.get(`https://api.spotify.com/${version}/artists/${artist_id}/related-artists?limit=15`, config);
 }
 module.exports.getArtistTopTracks = (token, artist_id, country = 'US') => {
   var config = { headers: {'Authorization': `Bearer ${token}`} };
