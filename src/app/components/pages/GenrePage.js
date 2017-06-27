@@ -23,7 +23,7 @@ class GenrePage extends React.Component {
       <div className='genre-contain'>
         <div className='contents'>
         <h1>{this.props.match.params.genre} Artists</h1>
-        {this.props.genre.isLoading ? (<Loader />) : (<ArtistResults artists={this.props.genre.genre_artists} type='artists'/>)}
+        {this.props.genre.isLoading ? (<Loader />) : (<SearchResults results={this.props.genre.genre_artists} type='artists'/>)}
         </div>
       </div>
     )
