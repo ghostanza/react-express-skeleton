@@ -617,9 +617,6 @@ a{
   .artist-contain{
     display: block;
     padding-bottom: 20px;
-    & .related-artists, .artist-albums{
-      margin-bottom: 20px;
-    }
     & .contents{
       color: coral;
       text-align: center;
@@ -639,7 +636,8 @@ a{
       box-shadow: none;
       display: block;
     }
-    & .related-artists, .artist-albums{
+    & .artist-info-list{
+      margin-bottom: 20px;
       & h2{
         font-family: $body-font;
         width: 90%;
@@ -658,7 +656,7 @@ a{
         list-style: none;
       }
     }
-    & .related-artists{
+    & .artist-info-list.text{
       & ul{
         width: 95%;
       }
@@ -687,7 +685,7 @@ a{
         }
       }
     }
-    & .artist-albums{
+    & .artist-info-list.images{
       & ul{
         width: 95%;
       }
