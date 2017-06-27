@@ -17,8 +17,13 @@ export function getTopItems(token, itemType, options){
 export function changeTopItemsRange(range, itemType){
   return {
     type: "CHANGE_TOP_ITEMS_RANGE",
-    changeTo: range,
-    itemType
+    changeTo: range
+  }
+}
+export function changeTopItemsType(type){
+  return {
+    type: "CHANGE_TOP_ITEMS_TYPE",
+    changeTo: type
   }
 }
 

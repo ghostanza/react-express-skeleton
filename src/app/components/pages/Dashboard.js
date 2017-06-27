@@ -17,8 +17,7 @@ class Dashboard extends React.Component {
       <div className='main-dash'>
         { this.props.user.token ? (
           <div>
-            <MyTop type='artists'/>
-            <MyTop type='tracks'/>
+            <MyTop type={this.props.user.top.current_type}/>
         </div>
         ) : <LoginButton /> }
       </div>
