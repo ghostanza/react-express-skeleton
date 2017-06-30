@@ -38,6 +38,7 @@ class ArtistPage extends React.Component {
             { this.props.artist.info.genres ? (<ArtistGenres genres={this.props.artist.info.genres} />) : ''}
             { this.props.artist.related_artists ? (<ArtistInfoList items={this.props.artist.related_artists} linksTo='artist' display='text' heading='Similar Artists' />) : ''}
             { this.props.artist.albums.length > 0 ? (<ArtistInfoList items={this.props.artist.albums} linksTo='album' display='images' heading='Albums' unique='true' />) : ''}
+            { this.props.artist.albums.length > 0 ? (<ArtistInfoList items={this.props.artist.top_tracks} linksTo='track' display='text' heading='Top Tracks' unique='true' />) : ''}
           </div>
         </div>
       </div>

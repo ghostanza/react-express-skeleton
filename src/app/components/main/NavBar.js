@@ -1,10 +1,10 @@
 import React from 'react';
 import * as spotify from 'spotify';
 import { Link } from 'react-router-dom';
-import logo from '../../assets/img/logo.gif';
-import backBtn from '../../assets/img/back.png';
+import home from '../../assets/img/home_icon_m.png';
+import backBtn from '../../assets/img/back_m.png';
 import searchX from '../../assets/img/search_2.png';
-import search from '../../assets/img/search_1_bk.png';
+import search from '../../assets/img/search_icon_m.png';
 import logout from '../../assets/img/logout.png';
 
 
@@ -21,7 +21,7 @@ export default class NavBar extends React.Component {
     return(
       <div className='navigation-bar'>
         <ul className="nav-items">
-          <li><Link to="/"><img src={logo} id="logo"/></Link></li>
+          <li><Link to="/"><img src={home} id="logo"/></Link></li>
           <li onClick={this.moveBack}><img src={backBtn} /></li>
           <li onClick={this.props.toggleSearch}>
             <img className='search-exit' style={{'display' : this.props.searchActive ? 'block' : 'none' }}src={searchX}/>
