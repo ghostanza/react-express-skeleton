@@ -2,6 +2,7 @@ import React from 'react';
 import {connect} from 'react-redux';
 import * as albumActions from 'actions/albumActions';
 import InfoList from 'components/main/InfoList';
+import AlbumSound from 'page_components/album/AlbumSound';
 
 function mapStateToProps(state, ownProps){
   return {token: state.user.token, artist: state.artist, album: state.album, url_params: ownProps.match.params, ...ownProps}
@@ -24,11 +25,16 @@ class AlbumPage extends React.Component {
   }
   componentWillMount(){
     this.fetchData();
+    document.querySelectorAll('.album-page-contain')[0] && document.querySelectorAll('.album-page-contain')[0].scrollIntoView({block: 'start'});
+  }
+  componentDidUpdate(){
+    document.querySelector('.album-page-contain') && document.querySelector('.album-page-contain').scrollIntoView({block: 'start'});
   }
   render() {
     console.log(this.props);
     return(
-      <div>
+      <div className='album-page-contain'>
+        {Object.keys(this.props.album.stats_avg).length ? (<AlbumSound stats={this.props.album.stats_avg}/>) : '' }
         {this.props.album.tracks.length  ? (<InfoList items={this.props.album.tracks} heading="Tracks" linksTo="track"/>) : ''}
       </div>
     )

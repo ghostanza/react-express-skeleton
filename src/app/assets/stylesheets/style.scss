@@ -822,4 +822,46 @@ a{
       }
     }
   }
+  .sound-overview{
+    width: 90%;
+    font-family: sans-serif;
+    position: relative;
+    padding: 0px 5px;
+    margin: 0 auto;
+    & h2{
+      font-family: "Barrio", sans-serif;
+      text-align: center;
+      font-size: 10vw;
+      color: white;
+      background: #333;
+      margin: 15px auto;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-weight: 200;
+    }
+    & ul{
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      & li{
+        padding: 10px 0;
+        border-bottom: 1px solid rgba($accent, 0.2);
+      }
+      & .stat-name{
+        font-size: 11px;
+        margin-bottom: 5px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        display: block;
+      }
+      & .stat-bar{
+        height: 20px;
+        background: $accent;
+        border-right: 2px solid #333;
+        & .stat-val-text{
+          visibility: hidden;
+        }
+      }
+    }
+  }
 }
