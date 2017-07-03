@@ -32,12 +32,11 @@ class AlbumPage extends React.Component {
     document.querySelector('.album-page-contain') && document.querySelector('.album-page-contain').scrollIntoView({block: 'start'});
   }
   render() {
-    console.log(this.props);
     return(
       <div className='album-page-contain'>
         {Object.keys(this.props.album.info).length ? (<AlbumInfoHeader info={this.props.album.info}/>) : ''}
         {Object.keys(this.props.album.stats_avg).length ? (<AlbumSound stats={this.props.album.stats_avg}/>) : '' }
-        {this.props.album.tracks.length  ? (<InfoList items={this.props.album.tracks} heading="Tracks" linksTo="track"/>) : ''}
+        {this.props.album.tracks.length  ? (<InfoList items={this.props.album.tracks} heading="Tracks" linksTo="track" hasAudio='1'/>) : ''}
       </div>
     )
   }

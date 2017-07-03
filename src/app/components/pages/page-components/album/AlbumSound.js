@@ -30,6 +30,12 @@ export default class AlbumSound extends React.Component {
                 }
             )) : ''
           }
+          { Object.keys(this.props.stats).length && this.props.stats.tempo ? (
+            <li key='tempo'>
+              <span className='stat-name'>Avg. Tempo</span>
+              <span>{Math.ceil(this.props.stats.tempo)}bpm</span>
+            </li>
+          ) : ''}
         </ul>
       </div>
     )
