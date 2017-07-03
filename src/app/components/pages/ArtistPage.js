@@ -4,7 +4,7 @@ import * as artistActions from 'actions/artistActions'
 import ArtistTopTracks from 'page_components/artist/ArtistTopTracks';
 import TopTracksOverview from 'page_components/artist/TopTracksOverview';
 import ArtistInfo from 'page_components/artist/ArtistInfo';
-import ArtistInfoList from 'page_components/artist/ArtistInfoList';
+import InfoList from 'components/main/InfoList';
 import ArtistGenres from 'page_components/artist/ArtistGenres';
 
 function mapStateToProps(state, ownProps){
@@ -36,9 +36,9 @@ class ArtistPage extends React.Component {
           { Object.keys(this.props.artist.info).length > 0 ? (<ArtistInfo info={this.props.artist.info} />) : '' }
           <div className='info'>
             { this.props.artist.info.genres ? (<ArtistGenres genres={this.props.artist.info.genres} />) : ''}
-            { this.props.artist.related_artists ? (<ArtistInfoList items={this.props.artist.related_artists} linksTo='artist' display='text' heading='Similar Artists' />) : ''}
-            { this.props.artist.albums.length > 0 ? (<ArtistInfoList items={this.props.artist.albums} linksTo='album' display='images' heading='Albums' unique='true' />) : ''}
-            { this.props.artist.albums.length > 0 ? (<ArtistInfoList items={this.props.artist.top_tracks} linksTo='track' display='text' heading='Top Tracks' unique='true' />) : ''}
+            { this.props.artist.related_artists ? (<InfoList items={this.props.artist.related_artists} linksTo='artist' display='pill' heading='Similar Artists' />) : ''}
+            { this.props.artist.albums.length > 0 ? (<InfoList items={this.props.artist.albums} linksTo='album' display='images' heading='Albums' unique='true' />) : ''}
+            { this.props.artist.albums.length > 0 ? (<InfoList items={this.props.artist.top_tracks} linksTo='track' display='pill' heading='Top Tracks' unique='true' />) : ''}
           </div>
         </div>
       </div>

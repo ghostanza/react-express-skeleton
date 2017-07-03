@@ -6,6 +6,7 @@ import ArtistPage from 'pages/ArtistPage';
 import TrackPage from 'pages/TrackPage';
 import GenrePage from 'pages/GenrePage';
 import SearchPage from 'pages/SearchPage';
+import AlbumPage from 'pages/AlbumPage';
 import { BrowserRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { getUserInfo } from 'actions/userActions';
@@ -29,6 +30,7 @@ class App extends React.Component {
             <Route exact path='/' component={Dashboard}/>
             <Route path='/artist/:id' component={ArtistPage}/>
             <Route path='/track/:id' component={TrackPage}/>
+            <Route path='/album/:id' component={AlbumPage}/>
             <Route path='/genre/:genre' component={GenrePage}/>
             <Route path='/search/:type/:query' component={SearchPage}/>
           </div>

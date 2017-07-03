@@ -100,6 +100,15 @@ module.exports.getAllTrackInfo = (token, track_id) => {
   }
 }
 
+/***** ALBUM *****/
+
+module.exports.getAlbumInfo = (token, album_id) => {
+  if(token && album_id){
+    var config = { headers : {'Authorization' : `Bearer ${token}`}};
+    return axios.get(`https://api.spotify.com/${version}/albums/${album_id}`, config);
+  }
+}
+
 
 /******* ARTIST RELATED ENDPOINTS **********/
 module.exports.getArtists = (token, artist_ids) => {
