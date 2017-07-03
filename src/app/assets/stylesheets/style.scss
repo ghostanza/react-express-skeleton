@@ -864,4 +864,35 @@ a{
       }
     }
   }
+  .album-info-header{
+    text-align:center;
+    padding: 0px 10px;
+    position: relative;
+    width: 90%;
+    margin: 0 auto 30px auto;
+    & h2{
+      font-family: $body-font;
+      font-size: 8vw;
+      margin: 5px 0 20px 0;
+      text-align: left;
+      color: #333;
+    }
+    & h3{
+      text-align: left;
+      margin: 5px 0;
+      font-size: 14px;
+      font-weight: bold;
+      letter-spacing: 0.75px;
+      text-transform: uppercase;
+      & a{
+        color: magenta;
+        font-family: sans-serif;
+      }
+    }
+  }
+  & img{
+    max-width: 100%;
+    box-shadow: 0px 0px 15px rgba(0,0,0,0.3);
+    margin: 20px 0 30px 0;
+  }
 }
