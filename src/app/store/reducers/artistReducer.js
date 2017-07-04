@@ -2,6 +2,7 @@ export default function reducer(state={
   current_artist_id:'',
   info: {},
   albums: [],
+  singles: [],
   top_tracks: [],
   related_artists: [],
   isLoading: false,
@@ -37,6 +38,7 @@ export default function reducer(state={
         related_artists: action.payload[1].data.artists,
         top_tracks: action.payload[2].data.tracks,
         albums: action.payload[3].data.items,
+        singles: action.payload[4].data.items,
         isLoading: false
       }
       break;
