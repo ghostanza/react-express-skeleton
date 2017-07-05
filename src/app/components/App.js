@@ -4,7 +4,6 @@ import {Route, Switch} from 'react-router-dom';
 import Dashboard from 'pages/Dashboard';
 import ArtistPage from 'pages/ArtistPage';
 import TrackPage from 'pages/TrackPage';
-import GenrePage from 'pages/GenrePage';
 import SearchPage from 'pages/SearchPage';
 import AlbumPage from 'pages/AlbumPage';
 import { BrowserRouter } from 'react-router-dom';
@@ -31,7 +30,6 @@ class App extends React.Component {
             <Route path='/artist/:id' component={ArtistPage}/>
             <Route path='/track/:id' component={TrackPage}/>
             <Route path='/album/:id' component={AlbumPage}/>
-            <Route path='/genre/:genre' component={GenrePage}/>
             <Route path='/search/:type/:query' component={SearchPage}/>
           </div>
           <Navigation name={this.props.user.info.id}/>

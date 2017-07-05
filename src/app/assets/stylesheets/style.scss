@@ -25,26 +25,26 @@ html, body{
   overflow-x: hidden;
 }
 html, body, .login-btn-wrap, .header-contain, .artist-contain, .artist-contain .content,
-.select-dropdown, .track-contain, .search-contain, .genre-contain ul li a, .search-contain ul li a,
-.genre-contain ul li span, .search-contain ul li span, .navigation-contain, .navigation-contain > div,
-.search-bar, .artist-contain .genre-block ul, .genre-contain h1, .search-contain h1{
+.select-dropdown, .track-contain, .search-contain, .search-contain ul li a,
+.search-contain ul li span, .navigation-contain, .navigation-contain > div,
+.search-bar, .artist-contain .genre-block ul, .search-contain h1{
   width: 100%;
 }
 html, body, .header-contain h2, .header-contain span, .header-contain p, .currently-playing-wrap p,
-.artist-contain h1, .genre-block ul, .genre-contain h1, .search-contain h1, .genre-contain ul, .search-contain ul,
-.navigation-bar ul, .genre-contain, .search-contain, .genre-contain .results-container ul, .search-contain .results-container ul,
+.artist-contain h1, .genre-block ul, .search-contain h1, .search-contain ul,
+.navigation-bar ul, .search-contain, .search-contain .results-container ul,
 .sound-overview ul{
   margin: 0;
 }
 
 a, .search-bar .select-wrapper .select-dropdown, .search-bar button.search-btn,
-.currently-playing-wrap, .artist-contain h1, .search-contain h3, .genre-contain h1,
+.currently-playing-wrap, .artist-contain h1, .search-contain h3,
 .search-contain h1, .dash-block, .dash-block h2, .info-list h2, .album-info-header h2{
   font-family: $body-font;
 }
 a, .login-btn, .header-contain span, .header-contain p, .header-contain h2,
 .search-bar input[type='text'], .search-bar button.search-btn,
-.genre-contain ul li span, .search-contain ul li span, .navigation-bar ul li, .search-bar{
+.search-contain ul li span, .navigation-bar ul li, .search-bar{
   transition: $transition;
 }
 h2{
@@ -199,7 +199,7 @@ a{
     font-size: 6vmax;
   }
 }
-.genre-contain h1, .search-contain h1{
+.search-contain h1{
     text-align: center;
     font-size: 4vmax;
     position:relative;
@@ -207,7 +207,7 @@ a{
     text-transform: uppercase;
 }
 // genre and search results
-.genre-contain ul, .search-contain ul{
+.search-contain ul{
   list-style: none;
   padding: 0;
   width: 80%;
@@ -630,7 +630,7 @@ a{
   }
 }
 // search results and genre artist list
-.genre-contain, .search-contain{
+.search-contain{
   display: block;
   & h1{
     position: fixed;
@@ -808,10 +808,10 @@ a{
       margin-top: 0;
     }
   }
-  .genre-contain h1, .search-contain h1{
+.search-contain h1{
     left: 0;
   }
-  .genre-contain .results-container ul, .search-contain .results-container ul{
+  .search-contain .results-container ul{
     overflow: scroll;
     white-space: normal;
     & li{
