@@ -145,10 +145,16 @@ module.exports.getAllArtistInfo = (token, artist_id, country, options) => {
 
 /*** SEARCH RELATED ENDPOINTS ***/
 
-module.exports.getGenreArtists = (token, genre, limit=20) => {
-  var genre = encodeURIComponent(genre),
-      config = { headers: {'Authorization': `Bearer ${token}`} };
-  return axios.get(`https://api.spotify.com/${version}/search?q=genre:%22${genre}%22&type=artist&limit=${limit}`, config);
+module.exports.getFilteredArtists = (token, filter, value, limit=30) => {
+  var value = encodeURIComponent(value),
+      config = { headers : {'Authorization': `Bearer ${token}`}},
+      allowed = {
+        'genre': 1,
+        'label': 1
+      };
+  if(allowed[filter]){
+    return axios.get(`https://api.spotify.com/${version}/search?q=${filter}:%22${value}%22&type=artist&limit=${limit}`, config);
+  }
 }
 
 module.exports.getSearchResults = (token, searchType, query) => {

@@ -11,6 +11,6 @@ export function updateSearchInfo(path, searchType, query){
 export function getSearchResults(token, searchType, query){
   return{
     type: 'GET_SEARCH_RESULTS',
-    payload: searchType === 'genre' ? spotify.getGenreArtists(token, query, 50) : spotify.getSearchResults(token, searchType, query)
+    payload: (searchType === 'genre' || searchType === 'label') ? spotify.getFilteredArtists(token, searchType, query) : spotify.getSearchResults(token, searchType, query)
   }
 }

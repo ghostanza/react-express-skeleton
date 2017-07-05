@@ -29,13 +29,14 @@ class SearchBar extends React.Component {
       return(
         <div className={`search-bar ${this.props.isActive ? 'active' : ''}`}>
           <form onSubmit={this.handleSubmit.bind(this)} autoComplete='off'>
-              <input id="search-box" type='text' autoComplete='off' placeholder='search for artist or album' onChange={this.queryInput.bind(this)}></input>
+              <input id="search-box" type='text' autoComplete='off' placeholder='artist, album, playlist...' onChange={this.queryInput.bind(this)}></input>
               <div className='select-wrapper'>
                 <select id="search-options" className='select-dropdown' value={this.state.searchType} onChange={this.changeType.bind(this)}>
                     <option value="artist">Artist</option>
                     <option value="album">Album</option>
                     <option value="playlist">Playlist</option>
                     <option value="genre">Genre</option>
+                    <option value="label">Label</option>
                 </select>
               </div>
               <button type='submit' className='search-btn'>Search</button>

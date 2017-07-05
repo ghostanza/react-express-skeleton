@@ -9,7 +9,7 @@ export default class ArtistGenres extends React.Component {
           {
             this.props.genres.length ? (
               this.props.genres.map((genre)=>{
-                return <li key={genre}><Link to={`/genre/${genre}`}>{genre}</Link></li>
+                return <li key={genre}><Link to={`/search/genre/${genre}`}>{genre}</Link></li>
               })
             ) : ''
           }

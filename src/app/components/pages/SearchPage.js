@@ -27,7 +27,7 @@ class SearchPage extends React.Component {
     document.querySelectorAll('.search-contain')[0] && document.querySelectorAll('.search-contain')[0].scrollIntoView({block: 'start'});
   }
   render() {
-    var type = this.props.match.params.type.match(/artist|genre/i) ? 'artists' : `${this.props.match.params.type}s`,
+    var type = this.props.match.params.type.match(/artist|genre|label/i) ? 'artists' : `${this.props.match.params.type}s`,
         results = this.props.search.searchResults[type];
     return (
       <div className='search-contain'>
