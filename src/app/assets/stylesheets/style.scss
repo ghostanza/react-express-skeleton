@@ -726,8 +726,8 @@ a{
   }
   & h3{
     text-align: left;
-    margin: 5px 0;
-    font-size: 14px;
+    margin: 10px 0;
+    font-size: 16px;
     font-weight: bold;
     letter-spacing: 0.75px;
     text-transform: uppercase;
@@ -741,6 +741,10 @@ a{
     box-shadow: 0px 0px 15px rgba(0,0,0,0.3);
     margin: 20px 0 30px 0;
   }
+}
+.album-info-header h3.album-label a{
+  font-weight: 200;
+  font-style: italic;
 }
 // desktop styles
 @media all and (min-width: 600px){
