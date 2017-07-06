@@ -140,7 +140,7 @@ module.exports.getArtistAlbums = (token, artist_id, options) => {
 }
 
 module.exports.getAllArtistInfo = (token, artist_id, country, options) => {
-  return axios.all([module.exports.getArtists(token, artist_id), module.exports.getRelatedArtists(token, artist_id), module.exports.getArtistTopTracks(token, artist_id, country), module.exports.getArtistAlbums(token, artist_id, options), module.exports.getArtistAlbums(token, artist_id, {'album_type' : 'single', 'limit' : 20})]);
+  return axios.all([module.exports.getArtists(token, artist_id), module.exports.getRelatedArtists(token, artist_id), module.exports.getArtistTopTracks(token, artist_id, country), module.exports.getArtistAlbums(token, artist_id, {"album_type" : "album", "limit" : 30}), module.exports.getArtistAlbums(token, artist_id, {'album_type' : 'single', 'limit' : 30})]);
 }
 
 /*** SEARCH RELATED ENDPOINTS ***/
