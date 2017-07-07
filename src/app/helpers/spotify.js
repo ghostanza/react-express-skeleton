@@ -1,7 +1,19 @@
 var axios = require('axios'),
     version = 'v1';
 
-
+module.exports.getOrSetToken = () => {
+  var token = document.cookie.match(/.*token=([^;]*).*$/) ? document.cookie.replace(/.*token=([^;]*).*$/,"$1") : '',
+      refresh = document.cookie.match(/.*refresh=([^;]*).*$/) ? document.cookie.replace(/.*refresh=([^;]*).*$/,"$1") : '';
+  if(token){
+    return Promise.resolve({data: {token, type: 'same'}});
+  }
+  else if(refresh){
+    return axios.get(`/api/v1/token?refresh=${refresh}`);
+  }
+  else{
+    return Promise.resolve({data:{ token: '', type: 'none'}});
+  }
+}
 
 /***************  USER RELATED ENDPOINTS ***************************/
 module.exports.getUserInfo = (token) => {

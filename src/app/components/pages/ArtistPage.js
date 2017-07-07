@@ -1,6 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import * as artistActions from 'actions/artistActions';
+import { setNewToken } from 'actions/userActions';
+import { getOrSetToken } from 'spotify';
 import ArtistInfo from 'page_components/artist/ArtistInfo';
 import InfoList from 'components/main/InfoList';
 import ArtistGenres from 'page_components/artist/ArtistGenres';
@@ -11,11 +13,18 @@ function mapStateToProps(state, ownProps){
 
 class ArtistPage extends React.Component {
   fetchData(){
-    var token = this.props.token,
+    var token = document.cookie.match(/.*token=([^;]*).*$/) ? document.cookie.replace(/.*token=([^;]*).*$/,"$1") : '',
         artist_id = this.props.url_params.id;
-    if((this.props.artist.current_artist_id != artist_id) && token.length){
+    if((this.props.artist.current_artist_id != artist_id) && token){
       this.props.dispatch(artistActions.setCurrentArtist(artist_id));
       this.props.dispatch(artistActions.getAllArtistInfo(token, artist_id));
+    }
+    else if(!token && document.cookie.match(/.*refresh=([^;]*).*$/)){
+      getOrSetToken().then((res) => {
+        this.props.dispatch(setNewToken(res.data.token));
+        this.props.dispatch(artistActions.setCurrentArtist(artist_id));
+        this.props.dispatch(artistActions.getAllArtistInfo(res.data.token, artist_id));
+      });
     }
   }
   componentWillMount(){

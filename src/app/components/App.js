@@ -3,12 +3,13 @@ import Navigation from './main/Navigation';
 import {Route, Switch} from 'react-router-dom';
 import Dashboard from 'pages/Dashboard';
 import ArtistPage from 'pages/ArtistPage';
+import { getOrSetToken } from 'spotify';
 import TrackPage from 'pages/TrackPage';
 import SearchPage from 'pages/SearchPage';
 import AlbumPage from 'pages/AlbumPage';
 import { BrowserRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { getUserInfo } from 'actions/userActions';
+import { getUserInfo, setNewToken } from 'actions/userActions';
 
 function mapStateToProps(state, ownProps){
   return { ...state, ...ownProps}
@@ -18,6 +19,12 @@ class App extends React.Component {
   componentWillMount(){
     if(this.props.user.token){
       this.props.dispatch(getUserInfo(this.props.user.token));
+    }
+    else if(document.cookie.match(/.*refresh=([^;]*).*$/)){
+      getOrSetToken().then((res) => {
+        this.props.dispatch(setNewToken(res.data.token));
+        this.props.dispatch(getUserInfo(res.data.token));
+      });
     }
   }
   render() {

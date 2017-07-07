@@ -19,13 +19,14 @@ router.get('/api/v1/:endpoint', (req,res,next) => {
     switch(endpoint){
       case 'callback':
         var code = req.query.code;
-        auth_handler.tokenRequest(code, res, req);
+        auth_handler.tokenRequest(code, 'initial', res, req);
         break;
       case 'code':
         res.send("FETCHING THE CODE...")
         break;
       case 'token':
-        res.send("FETCHING THE TOKEN FOR YA...");
+        var refresh = req.query.refresh;
+        auth_handler.tokenRequest(refresh, 'refresh', res, req);
         break;
       default:
         //logger.log_404(req);

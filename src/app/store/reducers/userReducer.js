@@ -1,5 +1,5 @@
 const initialState = {
-  token: document.cookie.replace(/.*token=([^;]*).*$/,"$1"),
+  token: document.cookie.match(/.*token=([^;]*).*$/) ? document.cookie.replace(/.*token=([^;]*).*$/,"$1") : '',
   info: {},
   top: {
     current_type: 'artists',
@@ -22,6 +22,10 @@ export default function reducer(state=initialState, action){
   switch(action.type){
     case "SET_USER_NAME": {
       return { ...state, info: { other: action.name } }
+      break;
+    }
+    case "SET_NEW_TOKEN": {
+      return {...state, token: action.payload }
       break;
     }
     case "CHANGE_TOP_ITEMS_RANGE":{

@@ -1,6 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import * as actions from 'actions/searchActions';
+import { setNewToken } from 'actions/userActions';
+import { getOrSetToken } from 'spotify';
 import SearchResults from 'page_components/search/SearchResults';
 
 function mapStateToProps(state, ownProps){
@@ -9,12 +11,19 @@ function mapStateToProps(state, ownProps){
 
 class SearchPage extends React.Component {
   fetchData(){
-    var token = this.props.token,
+    var token = document.cookie.match(/.*token=([^;]*).*$/) ? document.cookie.replace(/.*token=([^;]*).*$/,"$1") : '',
         searchType = this.props.match.params.type,
         query = this.props.match.params.query;
     if(token && searchType && query){
       this.props.dispatch(actions.updateSearchInfo(this.props.location.pathname, searchType, query));
       this.props.dispatch(actions.getSearchResults(token, searchType, query));
+    }
+    else if(!token && document.cookie.match(/.*refresh=([^;]*).*$/)){
+      getOrSetToken().then((res) => {
+        this.props.dispatch(setNewToken(res.data.token));
+        this.props.dispatch(actions.updateSearchInfo(this.props.location.pathname, searchType, query));
+        this.props.dispatch(actions.getSearchResults(res.data.token, searchType, query));
+      });
     }
   }
   componentWillMount(){

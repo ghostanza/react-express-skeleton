@@ -6,7 +6,12 @@ export function getUserInfo(token){
     payload: spotify.getUserInfo(token)
   }
 }
-
+export function setNewToken(token){
+  return{
+    type: "SET_NEW_TOKEN",
+    payload: token
+  }
+}
 export function getTopItems(token, itemType, options){
   return {
     type: "GET_TOP_ITEMS",

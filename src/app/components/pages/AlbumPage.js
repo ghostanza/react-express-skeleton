@@ -1,6 +1,8 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import * as albumActions from 'actions/albumActions';
+import { setNewToken } from 'actions/userActions';
+import { getOrSetToken } from 'spotify';
 import InfoList from 'components/main/InfoList';
 import AlbumSound from 'page_components/album/AlbumSound';
 import AlbumInfoHeader from 'page_components/album/AlbumInfoHeader';
@@ -11,16 +13,29 @@ function mapStateToProps(state, ownProps){
 
 class AlbumPage extends React.Component {
   fetchData(){
-    var token = this.props.token,
+    var token = document.cookie.match(/.*token=([^;]*).*$/) ? document.cookie.replace(/.*token=([^;]*).*$/,"$1") : '',
         album_id = this.props.url_params.id;
     if(album_id && token){
       this.props.dispatch(albumActions.getAlbumInfo(token, album_id)).then(
+      (res)=>{
+        if(res.action.payload.data && res.action.payload.data.tracks.items.length){
+          this.props.dispatch(
+            albumActions.getAudioFeatures(token, res.action.payload.data.tracks.items.map((i) => { return i.id }))
+          )
+        }
+      });
+    }
+    else if(!token && document.cookie.match(/.*refresh=([^;]*).*$/)){
+      getOrSetToken().then((res) => {
+        this.props.dispatch(setNewToken(res.data.token));
+        this.props.dispatch(albumActions.getAlbumInfo(res.data.token, album_id)).then(
         (res)=>{
           if(res.action.payload.data && res.action.payload.data.tracks.items.length){
             this.props.dispatch(
               albumActions.getAudioFeatures(token, res.action.payload.data.tracks.items.map((i) => { return i.id }))
             )
           }
+        });
       });
     }
   }
