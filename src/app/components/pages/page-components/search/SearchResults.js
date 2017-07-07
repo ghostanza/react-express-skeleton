@@ -13,7 +13,9 @@ class SearchResults extends React.Component {
         <ul className={type}>
           { this.props.results.map((result) => {
             return (
-              <li key={result.id}style={{'backgroundImage' : result.images.length >= 2 && result.images[1].url ? (`url(${result.images[1].url})`) : (`url(/${logo})`)}}>
+              <li key={result.id}style={{'backgroundImage' : result.images.length >= 2 && result.images[1].url
+                ? (`url(${result.images[1].url})`) : result.images.length && result.images[0].url
+                ? (`url(${result.images[0].url})`) : (`url(/${logo})`)}}>
                 <Link to={`/${type}/${result.id}`}>
                   <span className='genre-hover'>{result.name}</span>
                 </Link>
