@@ -731,6 +731,9 @@ a{
     font-weight: bold;
     letter-spacing: 0.75px;
     text-transform: uppercase;
+    &.album-artist{
+      margin-top: 30px;
+    }
     & a{
       color: magenta;
       font-family: sans-serif;
@@ -745,6 +748,33 @@ a{
 .album-info-header h3.album-label a{
   font-weight: 200;
   font-style: italic;
+}
+
+.view-on-spotify{
+  width: 250px;
+  height: 40px;
+  line-height: 40px;
+  cursor: pointer;
+  position: relative;
+  border-radius: 30px;
+  border: 1px solid $accent;
+  box-shadow: 0px 1px 5px rgba(0,0,0,0.3);
+  margin: 5px auto 10px auto;
+  transition: $transition;
+  & a{
+    @include sans-up;
+    display: block;
+    height: 100%;
+    color: $accent;
+    letter-spacing: 1.5px;
+    font-size: 11px;
+  }
+  &:hover{
+    background: $accent;
+    & a {
+      color: white;
+    }
+  }
 }
 // desktop styles
 @media all and (min-width: 600px){
