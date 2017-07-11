@@ -22,7 +22,6 @@ class TrackPage extends React.Component {
     }
   }
   render() {
-    console.log(this.props);
     return(
       <div className='track-contain'>
         { this.props.track.isLoading ? (<Loader />) : 'got the data'}
