@@ -238,7 +238,9 @@ a{
       color: magenta;
       text-align: center;
       padding: 10px;
+      border-top: 3px solid transparent;
       box-sizing: border-box;
+      transition: none;
       & img{
         margin: 0 auto;
         cursor: pointer;
@@ -785,6 +787,7 @@ a{
   .navigation-contain{
     right: 0;
     width: 40%;
+    height: 50px;
     min-width: 300px;
   }
   .navigation-bar ul li:hover{
