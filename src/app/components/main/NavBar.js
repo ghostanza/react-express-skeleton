@@ -22,13 +22,13 @@ export default class NavBar extends React.Component {
     return(
       <div className='navigation-bar'>
         <ul className="nav-items">
-          <li><Link to="/"><img src={home} id="logo"/></Link></li>
-          <li onClick={this.moveBack}><img src={backBtn} /></li>
+          <li><Link to="/"><img src={`/${home}`} id="logo"/></Link></li>
+          <li onClick={this.moveBack}><img src={`/${backBtn}`} /></li>
           <li onClick={this.props.toggleSearch}>
-            <img className='search-exit' style={{'display' : this.props.searchActive ? 'block' : 'none' }}src={searchX}/>
-            <img className='search-icon' style={{'display' : this.props.searchActive ? 'none' : 'block' }} src={search}/>
+            <img className='search-exit' style={{'display' : this.props.searchActive ? 'block' : 'none' }}src={`/${searchX}`}/>
+            <img className='search-icon' style={{'display' : this.props.searchActive ? 'none' : 'block' }} src={`/${search}`}/>
           </li>
-          <li><img src={logout} onClick={this.logout}/></li>
+          <li><img src={`/${logout}`} onClick={this.logout}/></li>
         </ul>
       </div>
     )

@@ -8,11 +8,6 @@ var express = require('express'),
     auth_handler = require('../modules/auth_handler'),
     errorLog_404 = fs.createWriteStream(path.join(__dirname, '../logs/error_404.log'), {flags: 'a'});
 
-// main app
-router.get('/', (req, res, next) => {
-  res.sendFile(path.join(__dirname, '../../../public/index.html'));
-});
-
 // API routes
 router.get('/api/v1/:endpoint', (req,res,next) => {
   var endpoint = req.params.endpoint || '';
@@ -35,5 +30,10 @@ router.get('/api/v1/:endpoint', (req,res,next) => {
         break;
     }
 })
+
+// main app
+router.get(['/', '/artist/*', '/album/*', '/search/*'], (req, res, next) => {
+  res.sendFile(path.join(__dirname, '../../../public/index.html'));
+});
 
 module.exports = router;
