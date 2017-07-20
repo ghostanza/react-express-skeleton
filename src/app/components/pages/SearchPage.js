@@ -25,6 +25,9 @@ class SearchPage extends React.Component {
         this.props.dispatch(actions.getSearchResults(res.data.token, searchType, query));
       });
     }
+    else{
+      this.props.history.push('/');
+    }
   }
   componentWillMount(){
     this.fetchData();

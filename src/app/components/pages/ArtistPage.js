@@ -26,6 +26,9 @@ class ArtistPage extends React.Component {
         this.props.dispatch(artistActions.getAllArtistInfo(res.data.token, artist_id));
       });
     }
+    else{
+      this.props.history.push('/');
+    }
   }
   componentWillMount(){
     this.fetchData();

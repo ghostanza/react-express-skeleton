@@ -38,6 +38,9 @@ class AlbumPage extends React.Component {
         });
       });
     }
+    else{
+      this.props.history.push('/');
+    }
   }
   componentWillMount(){
     this.fetchData();
